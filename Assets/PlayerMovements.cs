@@ -20,7 +20,8 @@ public class PlayerMovements : MonoBehaviour
 
     private void Update()
     {
-        body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
+        float horizontalInput = Input.GetAxis("Horizontal");
+        body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
         JumpVel = body.velocity.y;
         if (JumpVel == 0)
         {
@@ -29,19 +30,30 @@ public class PlayerMovements : MonoBehaviour
             multiJump = jumps;
         }
 
+        //Gère la rotaion du personnage selon sa direction
+        if (horizontalInput > 0.01f)
+        {
+            transform.localScale = Vector3.one;
+        }
+        else if (horizontalInput < -0.01f)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+
+        // Mouvement : Saut
         if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow))
         {
             if (IsJumping == false)
             {
                 body.velocity = new Vector2(body.velocity.x, jump);
-                IsJumping = !IsJumping;
+                IsJumping = true;
+                doubleJumpAllowed = true;
             }
             else
             {
-                if (doubleJumpAllowed)
+                if (doubleJumpAllowed == true)
                 {
-                    IsJumping = false;
-                    if (multiJump !< 0)
+                    if (multiJump! < 0)
                     {
                         body.velocity = new Vector2(body.velocity.x, jump);
                         multiJump -= 1;
@@ -49,10 +61,16 @@ public class PlayerMovements : MonoBehaviour
                 }
             }
         }
+    }
 
-        if (IsJumping)
+    //Gestion des collisions et Triggers
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        //Gestion des collisions Joueur-Monde
+        if (collision.tag == "World")
         {
-            doubleJumpAllowed = true;
+            IsJumping = false;            
         }
     }
 
