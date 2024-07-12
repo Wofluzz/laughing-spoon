@@ -21,10 +21,6 @@ public class PlayerMovements : MonoBehaviour
 
     private void Update()
     {
-        Vector3 eulerAngles = transform.eulerAngles;
-        transform.eulerAngles = new Vector3(eulerAngles.x, 0, 0);
-
-
         horizontalInput = Input.GetAxis("Horizontal");
 
 
@@ -36,7 +32,7 @@ public class PlayerMovements : MonoBehaviour
 
 
         // Mouvement : Saut
-        if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow)) && isGrounded())
+        if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.GetButtonDown("Jump")) && isGrounded())
             Jump();
 
 
