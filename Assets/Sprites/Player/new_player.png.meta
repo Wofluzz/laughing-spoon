@@ -1,0 +1,1300 @@
+fileFormatVersion: 2
+guid: 718029fd1441f174e981ad5971672ab5
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spell-0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2688
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 842ce56d3caaf8a4ba8ba41f3cb1361a
+      internalID: 531527351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spell-1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2688
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8d688f331b086c4f928401f8c361034
+      internalID: -995618514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spell-2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2688
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d48ab5e21ef5d94cbab97573f2b9d47
+      internalID: -2099241163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spell-3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2688
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79fc2f460bd098d40a5dc0d1845d06dd
+      internalID: 1197545787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spell-4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 2688
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe05457024d32c84abe25a47819e8c89
+      internalID: -1465656589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spell-5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2688
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f0c8544bfc44c4459b938208aadb0ad
+      internalID: 286119241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spell-6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2688
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35256efd28b9af24cb0050de20741e98
+      internalID: -144434517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk-0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2176
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59550812e7a542044b4a1ac606964cb7
+      internalID: -11211445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk-1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2176
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fd5f8831dc2e3f41bf7c5a7baab464e
+      internalID: 454713048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk-2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2176
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ca08ed9afd81d24abebbd412081f99b
+      internalID: 435052647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk-3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2176
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6d698a7861375947b520f819fa277ec
+      internalID: -917561234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk-4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 2176
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07ed94f148ac3aa4390402bc9303db28
+      internalID: 1745843826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk-5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2176
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99dd655ae37b1d84ea34f9d9803bb0dd
+      internalID: -982310571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk-6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2176
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a10c194f8d1b1df4395e01420c930f46
+      internalID: -177062115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk-7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 2176
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c82f7faff4f7a3439cff1efad49b473
+      internalID: 684535967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk-8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2176
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d35ec40b29072d24190e0282bc9d1875
+      internalID: 135905485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slash-0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d1493256b7ae3d4e9ecb6e310c790f7
+      internalID: 704307679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slash-1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1920
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3abfbd5be2f406a4a9686ad6f02f5a80
+      internalID: 883548684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slash-2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1920
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f1d1970d00077740b62bdfde8651964
+      internalID: -1218990398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slash-3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1920
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a8c3cc2cfef3214cafbbfde7814e82b
+      internalID: 131379066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slash-4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1920
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ceacb84967adbd46b50309b57d356d5
+      internalID: 1989249679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slash-5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1920
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 479aabf0ac3b62d4a8a75d1bbfb8bf68
+      internalID: -1674958121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hurt-0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1600
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 260721da60e26d74dabacd242e267840
+      internalID: -1350196081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hurt-1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1600
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6edace14d6971ed4f8d1cedc1f575d3a
+      internalID: -619151559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hurt-2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1600
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cc11d005c420324eab38f3569081f43
+      internalID: 2072129787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hurt-3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1600
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40084a0492f3cc043a5309e471ec0c2f
+      internalID: 344035717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hurt-4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1600
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46aa1db24921c164186400bf0381fc63
+      internalID: 1653062845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hurt-5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1600
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2633700bb20276a429b7810be18176bb
+      internalID: 699364061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: new_player_180
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7aa2e9e36ce90a4781186431b09c0c5
+      internalID: 1463113024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: new_player_181
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1536
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bb1750ad5206434cb9d302aa2ad27da
+      internalID: -719796788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: new_player_182
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1536
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 020dd1fac9a0e5d43acbd7fc99972c63
+      internalID: 2119116538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: new_player_183
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1536
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab258f641b1267f4ebd360d6fc46391f
+      internalID: -668822454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: new_player_184
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1536
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8220fb093b34e4408658984a261784e
+      internalID: -286895942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: new_player_185
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1536
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4543e0120f63b034da38db65b74ad7d7
+      internalID: -58831858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump-0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eabfb7b94cfb0734d9dab4314b3e4aaf
+      internalID: -1582634945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump-1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1024
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f58931fe6b06f464696c1148c8f3a46e
+      internalID: 661446727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump-2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1024
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06578145f6442f843960492eae24fbe7
+      internalID: -1598850310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump-3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1025
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb64a53b74c9b5449a65ad42393731cc
+      internalID: -403956690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump-4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1024
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67c5627044e430146b98c5f7b3071cf2
+      internalID: -1298665265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Slash-0: 704307679
+      Slash-1: 883548684
+      Slash-2: -1218990398
+      Slash-3: 131379066
+      Slash-4: 1989249679
+      Slash-5: -1674958121
+      hurt-0: -1350196081
+      hurt-1: -619151559
+      hurt-2: 2072129787
+      hurt-3: 344035717
+      hurt-4: 1653062845
+      hurt-5: 699364061
+      jump-0: -1582634945
+      jump-1: 661446727
+      jump-2: -1598850310
+      jump-3: -403956690
+      jump-4: -1298665265
+      new_player_0: -2023247842
+      new_player_1: 220522402
+      new_player_10: -659803071
+      new_player_100: 1425413047
+      new_player_101: 1392009827
+      new_player_102: 193676617
+      new_player_103: -1339271811
+      new_player_104: -2106282267
+      new_player_105: 857328201
+      new_player_106: -169967351
+      new_player_107: -1281390233
+      new_player_108: -1616336062
+      new_player_109: -1940101901
+      new_player_11: -1374233475
+      new_player_110: -1946733557
+      new_player_111: 27016757
+      new_player_112: 1324588637
+      new_player_113: 278747214
+      new_player_114: 171651491
+      new_player_115: -1395513189
+      new_player_12: 226268568
+      new_player_122: 1460012596
+      new_player_123: -1198636298
+      new_player_124: 1318530091
+      new_player_125: 1441664098
+      new_player_126: -1585427118
+      new_player_127: 684598745
+      new_player_128: 1126552011
+      new_player_129: -1383209074
+      new_player_13: 1653698299
+      new_player_130: -1254120669
+      new_player_131: 531400150
+      new_player_132: 680669085
+      new_player_133: 639964437
+      new_player_134: 132936666
+      new_player_135: -1609689939
+      new_player_136: -1124958817
+      new_player_137: -1455858776
+      new_player_138: 687707983
+      new_player_139: 705321091
+      new_player_14: 517237173
+      new_player_140: -1206744758
+      new_player_141: 1015658322
+      new_player_142: -2143419997
+      new_player_143: -1792168211
+      new_player_144: 1043493425
+      new_player_145: -1719062006
+      new_player_146: 977170317
+      new_player_147: -1023964142
+      new_player_148: 1772054882
+      new_player_149: -571485205
+      new_player_15: 1390753339
+      new_player_150: -1456872133
+      new_player_151: 417117129
+      new_player_152: 960509014
+      new_player_153: 1797823150
+      new_player_154: -474638205
+      new_player_155: 140891014
+      new_player_156: -1535853705
+      new_player_157: -421506162
+      new_player_158: 2096242319
+      new_player_159: 550851274
+      new_player_16: -414272635
+      new_player_160: -1939878079
+      new_player_161: 1085265530
+      new_player_162: -1779085553
+      new_player_163: 1882665922
+      new_player_164: 301904488
+      new_player_165: -1718504580
+      new_player_166: 322390822
+      new_player_167: -999461922
+      new_player_168: 1388125285
+      new_player_169: 1938560707
+      new_player_17: 1222743660
+      new_player_170: 1409667010
+      new_player_171: 1839990941
+      new_player_172: -458360198
+      new_player_173: -1358810826
+      new_player_18: -1544707242
+      new_player_180: 1463113024
+      new_player_181: -719796788
+      new_player_182: 2119116538
+      new_player_183: -668822454
+      new_player_184: -286895942
+      new_player_185: -58831858
+      new_player_186: -1518781819
+      new_player_187: -727332552
+      new_player_188: -1994616209
+      new_player_189: 1572475868
+      new_player_19: 1701221870
+      new_player_190: 2143924827
+      new_player_191: -1106895622
+      new_player_192: -1733590974
+      new_player_193: 2088757181
+      new_player_194: 118038986
+      new_player_195: -682028457
+      new_player_196: -1064201755
+      new_player_197: 236198072
+      new_player_198: -1197399080
+      new_player_199: 1631698440
+      new_player_2: -2063057414
+      new_player_20: 299955693
+      new_player_200: -1728486056
+      new_player_201: -671558930
+      new_player_202: 1404812243
+      new_player_203: 996565336
+      new_player_204: 1145411939
+      new_player_205: -1404269636
+      new_player_206: -329612942
+      new_player_207: -1923989752
+      new_player_208: 1105484969
+      new_player_209: 884272289
+      new_player_21: 604780520
+      new_player_210: 1489772110
+      new_player_211: 820698475
+      new_player_212: 387533861
+      new_player_213: -716941648
+      new_player_214: 498860910
+      new_player_215: 1046344872
+      new_player_216: 2091980706
+      new_player_22: 2005314364
+      new_player_222: -1734322049
+      new_player_223: 2037380583
+      new_player_224: -655632594
+      new_player_225: 344878664
+      new_player_226: -1377281525
+      new_player_227: 843170861
+      new_player_228: 2136648760
+      new_player_229: -1814011097
+      new_player_230: 984780267
+      new_player_231: -266891228
+      new_player_232: -858056731
+      new_player_233: -1063781765
+      new_player_234: 321621332
+      new_player_235: -1306407159
+      new_player_236: 1163908333
+      new_player_237: 116997692
+      new_player_238: 1913470423
+      new_player_239: -1835623134
+      new_player_240: 1707854617
+      new_player_241: 483807363
+      new_player_242: -1732233517
+      new_player_243: 397794286
+      new_player_244: -2046301882
+      new_player_245: -1303908601
+      new_player_246: -1699181602
+      new_player_247: -703660623
+      new_player_248: -330313908
+      new_player_249: 2039033098
+      new_player_250: -1155392365
+      new_player_251: 221853312
+      new_player_252: -832284269
+      new_player_253: -266828671
+      new_player_254: 1414899699
+      new_player_255: 75198972
+      new_player_256: -1596911923
+      new_player_257: -627032900
+      new_player_258: 431975497
+      new_player_259: -1528912397
+      new_player_260: 2133711965
+      new_player_261: -455658489
+      new_player_262: -1390308854
+      new_player_263: 1726221090
+      new_player_264: -1268042484
+      new_player_265: -1154984589
+      new_player_266: 1157802785
+      new_player_267: -1221230742
+      new_player_268: 2092938221
+      new_player_269: 57436986
+      new_player_270: 764249393
+      new_player_271: -875188714
+      new_player_272: -1039672542
+      new_player_273: -738658478
+      new_player_274: -14417562
+      new_player_275: 404897471
+      new_player_276: -916622684
+      new_player_277: 461825717
+      new_player_278: -914235186
+      new_player_279: 1377599794
+      new_player_280: 1348328791
+      new_player_281: 1701572964
+      new_player_282: -1714497231
+      new_player_283: -922725012
+      new_player_284: 643724232
+      new_player_285: 82446054
+      new_player_286: 1012632724
+      new_player_287: -1163739213
+      new_player_288: -2123053086
+      new_player_289: 1449169597
+      new_player_290: -882763087
+      new_player_291: -1931731020
+      new_player_292: -894517216
+      new_player_293: 2017782478
+      new_player_294: 978821624
+      new_player_295: -1003320131
+      new_player_296: -857228026
+      new_player_297: -216777919
+      new_player_298: 1599578519
+      new_player_299: 1055902030
+      new_player_3: 800725752
+      new_player_30: -439300151
+      new_player_300: 1562434758
+      new_player_301: -1920831385
+      new_player_302: 992158270
+      new_player_303: 1362151489
+      new_player_304: -1966668613
+      new_player_305: -229651554
+      new_player_306: 1034581579
+      new_player_307: 522728475
+      new_player_308: -648904951
+      new_player_309: -1211926441
+      new_player_31: 1073088820
+      new_player_310: -469725783
+      new_player_311: 1254955144
+      new_player_312: -1035442851
+      new_player_313: 1965432628
+      new_player_314: 284314630
+      new_player_315: -1034213479
+      new_player_316: 1697410970
+      new_player_317: -1224950888
+      new_player_318: 1691110292
+      new_player_319: -2028065666
+      new_player_32: -1720863266
+      new_player_320: 2056066018
+      new_player_321: -934054576
+      new_player_322: 1822483637
+      new_player_323: -799467985
+      new_player_324: 2106938519
+      new_player_325: 28713262
+      new_player_326: -1646952156
+      new_player_327: -1594529543
+      new_player_328: 627359391
+      new_player_329: 770875823
+      new_player_33: 1171637610
+      new_player_330: 192091559
+      new_player_331: 1617180252
+      new_player_332: -91406231
+      new_player_333: 2039943881
+      new_player_334: 1602866412
+      new_player_335: 918711745
+      new_player_336: 1242319124
+      new_player_337: 788778981
+      new_player_338: -1795069113
+      new_player_339: 1996500628
+      new_player_34: -815502360
+      new_player_340: -251293972
+      new_player_341: -1289669205
+      new_player_342: -1480520997
+      new_player_343: -1792663916
+      new_player_344: -1239723673
+      new_player_345: 1814896090
+      new_player_346: 2037396653
+      new_player_347: 823253643
+      new_player_348: -2135844058
+      new_player_349: -331124246
+      new_player_35: 1688635197
+      new_player_350: 1920583472
+      new_player_351: -1302702556
+      new_player_352: 328978291
+      new_player_353: 198500388
+      new_player_36: 1863809210
+      new_player_37: -629504903
+      new_player_38: -954513841
+      new_player_39: 1806118238
+      new_player_4: -969529742
+      new_player_40: 12051480
+      new_player_41: -129080344
+      new_player_42: 189526904
+      new_player_43: 223610547
+      new_player_44: 1606163236
+      new_player_45: -1837062303
+      new_player_46: 433923550
+      new_player_47: 1500093691
+      new_player_48: -1146130113
+      new_player_49: -504806312
+      new_player_5: -725602123
+      new_player_50: -345364749
+      new_player_51: 1625408802
+      new_player_52: -1386008985
+      new_player_53: -355255609
+      new_player_54: 941039476
+      new_player_55: 772540057
+      new_player_56: -1389930201
+      new_player_57: 1361707410
+      new_player_58: 271218426
+      new_player_59: -631470894
+      new_player_6: -571461403
+      new_player_60: 340729601
+      new_player_61: 216853185
+      new_player_62: 1744634695
+      new_player_63: -523865837
+      new_player_64: 1466437785
+      new_player_65: 180026735
+      new_player_66: 2081283608
+      new_player_67: 1535110239
+      new_player_68: -142782931
+      new_player_69: 2110483712
+      new_player_7: -692753677
+      new_player_70: -1618274031
+      new_player_71: 481192746
+      new_player_72: -427002797
+      new_player_73: 787725875
+      new_player_74: -212666277
+      new_player_75: -2076112107
+      new_player_76: 1298075323
+      new_player_77: 1377943851
+      new_player_78: 19589586
+      new_player_79: -335696221
+      new_player_8: 1131685393
+      new_player_80: 69892717
+      new_player_81: -1859962916
+      new_player_82: 1684189765
+      new_player_83: 686166254
+      new_player_84: 1061578276
+      new_player_85: -1399913165
+      new_player_86: 98302186
+      new_player_87: 1157717130
+      new_player_88: 1254403532
+      new_player_9: 1964142844
+      new_player_98: -285315408
+      new_player_99: 91901529
+      spell-0: 531527351
+      spell-1: -995618514
+      spell-2: -2099241163
+      spell-3: 1197545787
+      spell-4: -1465656589
+      spell-5: 286119241
+      spell-6: -144434517
+      walk-0: -11211445
+      walk-1: 454713048
+      walk-2: 435052647
+      walk-3: -917561234
+      walk-4: 1745843826
+      walk-5: -982310571
+      walk-6: -177062115
+      walk-7: 684535967
+      walk-8: 135905485
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
