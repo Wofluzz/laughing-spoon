@@ -9,12 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23c4c85be700abd40b0a7c1e4281830e, type: 3}
+  m_Script: {fileID: 11500000, guid: 770c07a794574614f9aab4e907f8557d, type: 3}
   m_Name: Apple
   m_EditorClassIdentifier: 
-  <IsStackable>k__BackingField: 1
-  <type>k__BackingField: 2
-  <MaxStackSize>k__BackingField: 99
-  <Name>k__BackingField: Pomme
-  <Description>k__BackingField: Restore la vie
   <ItemImage>k__BackingField: {fileID: 21300000, guid: 1b4117c3a3b8fcc42b4a30e94af6238e, type: 3}
+  <Name>k__BackingField: Pomme
+  <Description>k__BackingField: Permet de restaurer la vie
+  <IsStackable>k__BackingField: 1
+  <MaxStackSize>k__BackingField: 99
+  <DefaultParametersList>k__BackingField: []
+  modifierData:
+  - statsModifier: {fileID: 11400000, guid: 11c2c61698ab0dc46a7bcc3465ad5709, type: 2}
+    value: 0.5
+  <actionSFX>k__BackingField: {fileID: 8300000, guid: db51895b8aaca2b409d29bc1429cb85f, type: 3}

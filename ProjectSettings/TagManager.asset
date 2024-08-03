@@ -45,12 +45,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Objects
-    uniqueID: 1056383913
+  - name: Floor
+    uniqueID: 1209289593
     locked: 0
   - name: Player
     uniqueID: 29631479
     locked: 0
-  - name: Floor
-    uniqueID: 1209289593
+  - name: Objects
+    uniqueID: 1056383913
     locked: 0

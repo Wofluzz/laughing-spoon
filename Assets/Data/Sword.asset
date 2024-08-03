@@ -9,12 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23c4c85be700abd40b0a7c1e4281830e, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c9d43f16bee4d742a7e4585c4a1a91a, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
-  <IsStackable>k__BackingField: 0
-  <type>k__BackingField: 1
-  <MaxStackSize>k__BackingField: 1
-  <Name>k__BackingField: "\xC9p\xE9e"
-  <Description>k__BackingField: "L'outil des h\xE9ros"
   <ItemImage>k__BackingField: {fileID: 21300000, guid: 0f058e5e27e01314f98dac001b4468f9, type: 3}
+  <Name>k__BackingField: Sword
+  <Description>k__BackingField: "L'outil des h\xE9ros"
+  <IsStackable>k__BackingField: 0
+  <MaxStackSize>k__BackingField: 1
+  <DefaultParametersList>k__BackingField:
+  - itemParameter: {fileID: 11400000, guid: da9baa16fc794704bb088f70f7120b43, type: 2}
+    value: 100
