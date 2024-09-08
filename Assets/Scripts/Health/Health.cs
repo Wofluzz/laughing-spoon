@@ -1,7 +1,8 @@
 using System.Collections;
+using Unity.Netcode;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class Health : NetworkBehaviour
 {
 
     [Header("Health")]
@@ -26,13 +27,16 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float _damage)
     {
-
+        if (!IsOwner) return;
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
 
         if (currentHealth > 0)
         {
-            anim.SetTrigger("hurt");
-            StartCoroutine(Invulnerability());
+            if (_damage > 0)
+            {
+                anim.SetTrigger("hurt");
+                StartCoroutine(Invulnerability());
+            }
         }
         else
         {
@@ -43,7 +47,7 @@ public class Health : MonoBehaviour
                     component.enabled = false;*/
 
                 anim.SetTrigger("die");
-                GetComponent<PlayerMovements>().enabled = false;
+                GetComponent<PlayerController>().enabled = false;
                 dead = true;
             }
         }
@@ -51,6 +55,7 @@ public class Health : MonoBehaviour
 
     public void AddHealth(float _value)
     {
+        if (!IsOwner) return;
         currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
     }
 
@@ -72,6 +77,7 @@ public class Health : MonoBehaviour
     }
     public void Respawn()
     {
+        if (!IsOwner) return;
         dead = false;
         AddHealth(startingHealth);
         anim.ResetTrigger("die");

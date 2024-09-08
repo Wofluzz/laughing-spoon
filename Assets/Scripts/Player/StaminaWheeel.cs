@@ -23,7 +23,7 @@ public class StaminaWheeel : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftControl) && !staminaExhausted)
+        if (Input.GetButton("Sprint") && !staminaExhausted)
         {
             UI.SetActive(true);
             if (stamina > 0)

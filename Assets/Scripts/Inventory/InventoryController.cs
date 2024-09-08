@@ -3,12 +3,15 @@ using Inventory.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
+using TMPro;
+using Unity.Netcode;
 using UnityEngine;
 
 namespace Inventory
 {
-    public class InventoryController : MonoBehaviour
+    public class InventoryController : NetworkBehaviour
     {
         [SerializeField]
         private UIInventoryPage inventoryUI;
@@ -106,8 +109,7 @@ namespace Inventory
         public void ItemDropping(GameObject obj, ItemSO itemSO, int Quantity)
         {
             Item item = obj.GetComponent<Item>();
-            
-            Debug.Log(itemSO);
+            obj.GetComponentInChildren<TMP_Text>().text = Quantity.ToString();
             if (item != null)
             {
                 item.SetItem(obj, itemSO, Quantity);
@@ -176,6 +178,7 @@ namespace Inventory
 
         private void Update()
         {
+            if (!IsOwner) return;
             if (Input.GetKeyDown(KeyCode.I))
             {
                 if (inventoryUI.isActiveAndEnabled == false)

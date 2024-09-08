@@ -1,13 +1,12 @@
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : NetworkBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float speedBoost;
     //[SerializeField] private float jumpPower;
     [SerializeField] private float forceDamping;
-    [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private LayerMask wallLayer;
     [SerializeField] private StaminaWheeel staminaWheel;
     private Rigidbody2D body;
     private Animator anim;
@@ -24,11 +23,12 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (!IsOwner) return;
         Walk(speed);
 
         //Gere les paramètres d'animation
         IsWalking = Input.GetAxisRaw("Horizontal") != 0 | Input.GetAxisRaw("Vertical") != 0;
-        if (IsWalking && Input.GetKey(KeyCode.LeftControl) && (staminaWheel.stamina > 0 && !staminaWheel.staminaExhausted))
+        if (IsWalking && Input.GetButton("Sprint") && (staminaWheel.stamina > 0 && !staminaWheel.staminaExhausted))
         {
             Walk(speed * speedBoost);
             anim.SetBool("Running", true);

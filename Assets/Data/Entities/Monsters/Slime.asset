@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f86d8d9bb9f00d1498b4755b863e973e, type: 3}
+  m_Name: Slime
+  m_EditorClassIdentifier: 
+  Name: Slime
+  EntitySprite: {fileID: 979920597, guid: 283d29ae7d4e5f848bb3a6f4801bf968, type: 3}
+  EntityAnimationTree: {fileID: 9100000, guid: 10b51b4a9a02b464aa15feba8367bebc, type: 2}
+  EntityType: 0
+  IsInvincible: 0
+  MaxHealth: 10
+  DamageToPlayer: 0.5
+  IsLoots: 1
+  Loots:
+  - item: {fileID: 11400000, guid: b244dd9acf8c8ed4cafe8ffd58b99d8e, type: 2}
+    quantity: 5
+  - item: {fileID: 11400000, guid: 48e840ccc5e795f459a7e5abfc98d821, type: 2}
+    quantity: 1
+  IsMove: 1
+  MoveSpeed: 1
+  rotateSpeed: 10
+  CanFollowPlayer: 1
+  DetectionRadius: 5
+  Sounds:
+  - Name: Die
+    Audio: {fileID: 8300000, guid: b8ae444086ab12c4c8067d304ddb90ff, type: 3}

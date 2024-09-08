@@ -1,5 +1,6 @@
 using Inventory.Model;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class Item : MonoBehaviour
@@ -19,6 +20,7 @@ public class Item : MonoBehaviour
     private void Start()
     {
         GetComponent<SpriteRenderer>().sprite = InventoryItem.ItemImage;
+        GetComponentInChildren<TMP_Text>().text = Quantity.ToString();
     }
 
     internal void DestroyItem()
