@@ -1,7 +1,8 @@
 using System.IO;
+using Unity.Netcode;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class CameraController : NetworkBehaviour
 {
     [SerializeField] private float speed;
     private float currentPosX;
@@ -14,7 +15,6 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-
         //Room Camera
         transform.position = Vector3.SmoothDamp(transform.position, new Vector3(currentPosX, transform.position.y, transform.position.z), ref velocity, speed);
 

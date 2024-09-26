@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerAwarnessController))]
+[RequireComponent(typeof(PlayerAwarenessController))]
 public class EnemyMovements : MonoBehaviour
 {
     [SerializeField]
@@ -11,14 +11,14 @@ public class EnemyMovements : MonoBehaviour
 
     private Rigidbody2D _rigidbody;
     private Animator anim;
-    private PlayerAwarnessController _playerAwarnessController;
+    private PlayerAwarenessController _playerAwarnessController;
     private Vector2 _targetDirection;
 
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        _playerAwarnessController = GetComponent<PlayerAwarnessController>();
+        _playerAwarnessController = GetComponent<PlayerAwarenessController>();
         anim = GetComponentInChildren<Animator>();
     }
 

@@ -1,5 +1,6 @@
 using Unity.Netcode;
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerController : NetworkBehaviour
 {
@@ -8,6 +9,9 @@ public class PlayerController : NetworkBehaviour
     //[SerializeField] private float jumpPower;
     [SerializeField] private float forceDamping;
     [SerializeField] private StaminaWheeel staminaWheel;
+
+    [SerializeField] private CinemachineVirtualCamera vc;
+    [SerializeField] private AudioListener listener;
     private Rigidbody2D body;
     private Animator anim;
     private Vector2 ForceToApply;
@@ -21,14 +25,28 @@ public class PlayerController : NetworkBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
+    public override void OnNetworkSpawn()
+    {
+        if (IsOwner)
+        {
+            listener.enabled = true;
+            vc.Priority = 1;
+        } else
+        {
+            vc.Priority = 0;
+        }
+    }
     private void Update()
     {
         if (!IsOwner) return;
+        if (FindAnyObjectByType<ChatManager>().isChatting) return;
         Walk(speed);
-
         //Gere les paramètres d'animation
         IsWalking = Input.GetAxisRaw("Horizontal") != 0 | Input.GetAxisRaw("Vertical") != 0;
-        if (IsWalking && Input.GetButton("Sprint") && (staminaWheel.stamina > 0 && !staminaWheel.staminaExhausted))
+        if (
+            IsWalking && Input.GetButton("Sprint") 
+            && 
+            (staminaWheel.stamina > 0 && !staminaWheel.staminaExhausted))
         {
             Walk(speed * speedBoost);
             anim.SetBool("Running", true);

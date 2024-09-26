@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.U2D;
 
-public class InteractionInstigator : MonoBehaviour
+public class InteractionInstigator : NetworkBehaviour
 {
     private List<Interactable> m_NearbyInteractables = new List<Interactable>();
 
@@ -17,6 +18,7 @@ public class InteractionInstigator : MonoBehaviour
 
     private void Update()
     {
+        if (!IsOwner) return;
         if (HasNearbyInteractables() && Input.GetButtonDown("Submit"))
         {
             textComponent.text = string.Empty;

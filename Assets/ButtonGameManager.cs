@@ -2,43 +2,89 @@ using UnityEngine;
 using UnityEngine.UI;
 using Unity.Netcode;
 using UnityEngine.SceneManagement;
+using TMPro;
 
-public class ButtonGameManager : MonoBehaviour
+public class GameModeManager : MonoBehaviour
 {
-    public Button startClientButton; // Reference to the "Start Client" button
-    public Button startServerButton; // Reference to the "Start Server" button
-    public Button launchGameButton;  // Reference to the "Launch Game" button
+    [SerializeField] private Button startSoloButton;    // Reference to the "Start Solo" button
+    [SerializeField] private Button hostButton;         // Reference to the "Host Game" button
+    [SerializeField] private Button joinButton;         // Reference to the "Join Game" button
 
-    public GameObject Panel;
+    [SerializeField] private TMP_InputField ipInputField;   // Input field for the IP address (for joining)
+    [SerializeField] private TMP_InputField portInputField; // Input field for the port (for joining or hosting)
 
-    public string gameSceneName = "Test3D"; // Name of the scene to load
+    [SerializeField] private TMP_Text Info;
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject NetworkManagerObject;
+
+    public string gameSceneName = "GameScene"; // Name of the scene to load for the game
 
     void Start()
     {
         // Ensure buttons are assigned in the Inspector
-        if (startClientButton != null)
+        if (startSoloButton != null)
         {
-            startClientButton.onClick.AddListener(StartClient);
+            startSoloButton.onClick.AddListener(StartGameSolo);
         }
 
-        if (startServerButton != null)
+        if (hostButton != null)
         {
-            startServerButton.onClick.AddListener(StartServer);
+            hostButton.onClick.AddListener(StartHost);
         }
 
-        if (launchGameButton != null)
+        if (joinButton != null)
         {
-            launchGameButton.onClick.AddListener(LaunchGame);
+            joinButton.onClick.AddListener(JoinGame);
+        }
+
+        // Set default IP and port values
+        if (ipInputField != null)
+        {
+            ipInputField.text = "127.0.0.1"; // Default IP for localhost
+        }
+
+        if (portInputField != null)
+        {
+            portInputField.text = "7777"; // Default port
         }
     }
 
-    // Start the client
-    void StartClient()
+    // Start the game solo (without network)
+    void StartGameSolo()
     {
+        DebugInfo("Starting game in solo mode...");
+        SceneManager.LoadScene(gameSceneName, LoadSceneMode.Single);
+        Instantiate(player);
+        NetworkManagerObject.SetActive(false);
+    }
+
+    // Start as Host (server + client)
+    void StartHost()
+    {
+        SetIPAndPort();
+
+        if (NetworkManager.Singleton != null && !NetworkManager.Singleton.IsHost)
+        {
+            NetworkManager.Singleton.StartHost();
+            DebugInfo("Hosting the game with IP: " + ipInputField.text + " and Port: " + portInputField.text);
+            NetworkManager.Singleton.SceneManager.LoadScene(gameSceneName, UnityEngine.SceneManagement.LoadSceneMode.Single);
+        }
+        else
+        {
+            Debug.LogWarning("NetworkManager is null or already hosting.");
+        }
+    }
+
+    // Join an existing game as a client
+    void JoinGame()
+    {
+        SetIPAndPort();
+
         if (NetworkManager.Singleton != null && !NetworkManager.Singleton.IsClient)
         {
             NetworkManager.Singleton.StartClient();
-            Debug.Log("Client started!");
+            DebugInfo("Joining the game at IP: " + ipInputField.text + " and Port: " + portInputField.text);
+            NetworkManager.Singleton.SceneManager.LoadScene(gameSceneName, UnityEngine.SceneManagement.LoadSceneMode.Single);
         }
         else
         {
@@ -46,33 +92,30 @@ public class ButtonGameManager : MonoBehaviour
         }
     }
 
-    // Start the server
-    void StartServer()
+    // Set the IP and Port based on the input fields
+    void SetIPAndPort()
     {
-        if (NetworkManager.Singleton != null && !NetworkManager.Singleton.IsServer)
+        if (NetworkManager.Singleton != null)
         {
-            NetworkManager.Singleton.StartServer();
-            Debug.Log("Server started!");
-        }
-        else
-        {
-            Debug.LogWarning("NetworkManager is null or Server is already running.");
+            var transport = NetworkManager.Singleton.GetComponent<Unity.Netcode.Transports.UTP.UnityTransport>();
+            if (transport != null)
+            {
+                transport.ConnectionData.Address = ipInputField.text;
+
+                if (ushort.TryParse(portInputField.text, out ushort port))
+                {
+                    transport.ConnectionData.Port = port;
+                }
+                else
+                {
+                    Debug.LogWarning("Invalid port number, using default.");
+                }
+            }
         }
     }
 
-    // Launch the game and change the scene
-    void LaunchGame()
+    void DebugInfo(string InfoTxt)
     {
-        if (NetworkManager.Singleton.IsServer)
-        {
-            // Only the server can change the scene in Netcode for GameObjects
-            NetworkManager.Singleton.SceneManager.LoadScene(gameSceneName, LoadSceneMode.Single);
-            Panel.SetActive(false);
-            Debug.Log("Scene changing to " + gameSceneName);
-        }
-        else
-        {
-            Debug.LogWarning("Only the server can change the scene. Start as a server first.");
-        }
+        Info.text = InfoTxt;
     }
 }

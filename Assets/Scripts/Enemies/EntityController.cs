@@ -3,6 +3,7 @@ using Inventory.Model;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.U2D;
@@ -13,7 +14,7 @@ using Random = System.Random;
 [RequireComponent(typeof(EnemyHealthBar))]
 [RequireComponent(typeof(Enemy_Sideways))]
 [RequireComponent(typeof(Rigidbody2D))]
-public class EntityController : MonoBehaviour
+public class EntityController : NetworkBehaviour
 {
     [SerializeField]
     private EntitySO entity;
@@ -25,7 +26,7 @@ public class EntityController : MonoBehaviour
     private InventoryController inventoryController;
 
     private SpriteRenderer spriteRenderer;
-    private PlayerAwarnessController playerAwarnessController;
+    private PlayerAwarenessController playerAwarenessController;
     private Animator anim;
     private EnemyHealth Health;
     private EnemyHealthBar healthBar;
@@ -34,11 +35,12 @@ public class EntityController : MonoBehaviour
     [SerializeField]
     private AudioSource audioSource;
 
-    private void Awake()
+    public override void OnNetworkSpawn()
     {
         InitializeComponents();
         SetupEntity();
     }
+    
 
     private void InitializeComponents()
     {
@@ -51,7 +53,7 @@ public class EntityController : MonoBehaviour
             Health = GetComponent<EnemyHealth>();
             healthBar = GetComponent<EnemyHealthBar>();
             sideways = GetComponent<Enemy_Sideways>();
-            playerAwarnessController = GetComponent<PlayerAwarnessController>();
+            playerAwarenessController = GetComponent<PlayerAwarenessController>();
         }
         movements = GetComponent<EnemyMovements>();
     }
@@ -104,9 +106,9 @@ public class EntityController : MonoBehaviour
         Health.startingHealth = entity.MaxHealth;
         sideways.SetDamageTo(entity.DamageToPlayer);
         if (entity.CanFollowPlayer && entity.IsMove)
-            playerAwarnessController.SetAwarnessDistanceTo(entity.DetectionRadius);
+            playerAwarenessController.SetAwarenessDistanceTo(entity.DetectionRadius);
         else
-            playerAwarnessController.enabled = false;
+            playerAwarenessController.enabled = false;
     }
 
     public void DropItemsAndDie()

@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 namespace Inventory.UI
 {
-    public class UIInventoryPage : MonoBehaviour
+    public class UIInventoryPage : NetworkBehaviour
     {
         [SerializeField]
         private UIInventoryItem itemPrefab;
@@ -31,12 +32,13 @@ namespace Inventory.UI
         [SerializeField]
         private ItemActionPanel actionPanel;
 
-        private void Awake()
+        public override void OnNetworkSpawn()
         {
             Hide();
             mouseFollower.Toggle(false);
             itemDescription.ResetDescription();
         }
+
         public void InitInventoryUI(int inventorySize)
         {
             for (int i = 0; i < inventorySize; i++)

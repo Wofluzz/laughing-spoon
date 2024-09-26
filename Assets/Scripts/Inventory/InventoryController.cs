@@ -13,6 +13,7 @@ namespace Inventory
 {
     public class InventoryController : NetworkBehaviour
     {
+        public static InventoryController Singleton;
         [SerializeField]
         private UIInventoryPage inventoryUI;
 
@@ -35,10 +36,12 @@ namespace Inventory
         private void Awake()
         {
             player = GetComponent<Transform>();
+            InventoryController.Singleton = this;
         }
 
-        private void Start()
+        public override void OnNetworkSpawn()
         {
+            inventoryUI = FindAnyObjectByType<UIInventoryPage>().GetComponent<UIInventoryPage>();
             PrepareUI();
             PrepareInventoryData();
         }
@@ -100,19 +103,38 @@ namespace Inventory
             inventoryData.RemoveItem(itemIndex, quantity);
             inventoryUI.ResetSelection();
             audioSource.PlayOneShot(dropClip);
-            Vector3 playerPos = new Vector2(player.position.x, player.position.y - 1);
+            Vector3 playerPos = new Vector2(player.position.x, player.position.y - 3);
             GameObject itemDropped = Instantiate(droppedItem);
+            if (IsHost)
+                itemDropped.GetComponent<NetworkObject>().Spawn();
+            Debug.Log("Object Locally dropped");
+            
             itemDropped.transform.position = playerPos;
             ItemDropping(itemDropped, inventoryItem.item, inventoryItem.quantity);
         }
 
-        public void ItemDropping(GameObject obj, ItemSO itemSO, int Quantity)
+        public void ItemDropping(GameObject obj, ItemSO itemSO, int quantity)
         {
             Item item = obj.GetComponent<Item>();
-            obj.GetComponentInChildren<TMP_Text>().text = Quantity.ToString();
+            obj.GetComponentInChildren<TMP_Text>().text = quantity.ToString();
+
             if (item != null)
             {
-                item.SetItem(obj, itemSO, Quantity);
+                item.SetItem(obj, itemSO, quantity);
+            }
+            Debug.Log("Updated");
+            NetworkObjectReference objReference = obj.GetComponent<NetworkObject>();
+            ItemDroppingServerRpc(objReference);
+
+        }
+
+        [ServerRpc(RequireOwnership = false)]
+        public void ItemDroppingServerRpc(NetworkObjectReference objReference)
+        {
+            if (objReference.TryGet(out NetworkObject netObject))
+            {
+                netObject.Spawn();
+                Debug.Log("Spawning in Server");
             }
         }
 
@@ -179,6 +201,8 @@ namespace Inventory
         private void Update()
         {
             if (!IsOwner) return;
+            if (FindAnyObjectByType<ChatManager>().isChatting) return;
+
             if (Input.GetKeyDown(KeyCode.I))
             {
                 if (inventoryUI.isActiveAndEnabled == false)
@@ -196,6 +220,7 @@ namespace Inventory
                     inventoryUI.Hide();
                 }
             }
+            else if (Input.GetKeyDown(KeyCode.Escape)) inventoryUI.Hide();
         }
     }
 }

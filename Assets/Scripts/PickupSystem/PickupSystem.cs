@@ -17,9 +17,16 @@ public class PickupSystem : NetworkBehaviour
         {
             int reminder = inventoryData.AddItem(item.InventoryItem, item.Quantity);
             if (reminder == 0)
+            {
                 item.DestroyItem();
-            else 
+                NetworkObject NetItem = collision.gameObject.GetComponent<NetworkObject>();
+                NetItem.Despawn();
+            }
+            else
+            {
                 item.Quantity = reminder;
+                NetworkObject.GetComponent<Item>().Quantity = reminder;
+            }
         }
     }
 }

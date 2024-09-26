@@ -1,34 +1,63 @@
 using UnityEngine;
+using System.Linq;
 
-public class PlayerAwarnessController : MonoBehaviour
+public class PlayerAwarenessController : MonoBehaviour
 {
     public bool AwareOfPlayer { get; private set; }
-
     public Vector2 DirectionToPlayer { get; private set; }
 
     [SerializeField]
-    private float _playerAwarnessDistance;
+    private float _playerAwarenessDistance;
 
-    private Transform _player;
+    private Transform _closestPlayer;
 
-    private void Awake()
+    private void Update()
     {
-        _player = FindObjectOfType<PlayerController>().transform;
-    }
+        _closestPlayer = GetClosestPlayer();
+        
+        if (_closestPlayer != null)
+        {
+            Vector2 enemyToPlayerVector = _closestPlayer.position - transform.position;
+            DirectionToPlayer = enemyToPlayerVector.normalized;
 
-    void Update()
-    {
-        Vector2 enemyToPlayerVector = _player.position - transform.position;
-        DirectionToPlayer = enemyToPlayerVector.normalized;
-
-        if (enemyToPlayerVector.magnitude <= _playerAwarnessDistance)
-            AwareOfPlayer = true;
+            if (enemyToPlayerVector.magnitude <= _playerAwarenessDistance)
+                AwareOfPlayer = true;
+            else
+                AwareOfPlayer = false;
+        }
         else
+        {
             AwareOfPlayer = false;
+        }
     }
 
-    public void SetAwarnessDistanceTo(float distance)
+    private Transform GetClosestPlayer()
     {
-        _playerAwarnessDistance = distance;
+        // Trouver tous les objets PlayerController dans la scène
+        var players = FindObjectsOfType<PlayerController>();
+
+        if (players.Length == 0)
+            return null;
+
+        // Trouver le joueur le plus proche
+        Transform closestPlayer = null;
+        float closestDistance = Mathf.Infinity;
+
+        foreach (var player in players)
+        {
+            float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
+            if (distanceToPlayer < closestDistance)
+            {
+                closestPlayer = player.transform;
+                closestDistance = distanceToPlayer;
+            }
+        }
+
+        return closestPlayer;
+    }
+
+    public void SetAwarenessDistanceTo(float distance)
+    {
+        _playerAwarenessDistance = distance;
     }
 }

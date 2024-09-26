@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttack : NetworkBehaviour
 {
     [SerializeField]
     private Animator anim;
@@ -27,6 +28,9 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!IsOwner) return;
+        if (FindAnyObjectByType<ChatManager>().isChatting) return;
+       
         if (Input.GetButtonDown("Attack"))
         {
             Transform player = GetComponent<Transform>();

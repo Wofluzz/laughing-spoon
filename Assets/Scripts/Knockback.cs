@@ -1,22 +1,44 @@
 using System.Collections;
-using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class Knockback : MonoBehaviour
+public class Knockback : NetworkBehaviour
 {
-    private GameObject player;
     private Rigidbody2D rb2d;
-    private void Awake()
+    private GameObject player;
+
+    [SerializeField]
+    private float knockbackForce = 15f;
+
+    public override void OnNetworkSpawn()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        player = FindAnyObjectByType<PlayerController>().gameObject;
+
+        // Trouver le joueur du propriétaire ou du serveur, selon la situation
+        if (IsOwner)
+        {
+            player = gameObject;  // Le joueur local est celui qui possède cet objet
+        }
+        else
+        {
+            player = FindClosestPlayer();  // Si ce n'est pas le propriétaire, on cherche le joueur le plus proche
+        }
     }
-    // Start is called before the first frame update
+
     public void Knock()
     {
-        StopAllCoroutines();
-        Vector2 direction = (transform.position - player.transform.position).normalized;
-        rb2d.AddForce(direction * 15, ForceMode2D.Impulse);
+        if (IsServer)
+        {
+            Vector2 direction = (transform.position - player.transform.position).normalized;
+            ApplyKnockbackServerRpc(direction);
+        }
+    }
+
+    [ServerRpc]
+    private void ApplyKnockbackServerRpc(Vector2 direction)
+    {
+        // Applique la force de knockback uniquement sur le serveur
+        rb2d.AddForce(direction * knockbackForce, ForceMode2D.Impulse);
         StartCoroutine(ResetKnockBack());
     }
 
@@ -24,5 +46,25 @@ public class Knockback : MonoBehaviour
     {
         yield return new WaitForSeconds(0.15f);
         rb2d.velocity = Vector3.zero;
+    }
+
+    // Helper pour trouver le joueur le plus proche (si c'est nécessaire pour des ennemis)
+    private GameObject FindClosestPlayer()
+    {
+        PlayerController[] players = FindObjectsOfType<PlayerController>();
+        GameObject closestPlayer = null;
+        float closestDistance = Mathf.Infinity;
+
+        foreach (var playerController in players)
+        {
+            float distance = Vector2.Distance(playerController.transform.position, transform.position);
+            if (distance < closestDistance)
+            {
+                closestPlayer = playerController.gameObject;
+                closestDistance = distance;
+            }
+        }
+
+        return closestPlayer;
     }
 }

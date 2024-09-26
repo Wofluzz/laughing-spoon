@@ -1,13 +1,14 @@
 using TMPro;
+using Unity.Netcode;
 using UnityEngine;
 
-public class AttackArea : MonoBehaviour
+public class AttackArea : NetworkBehaviour
 {
     private int damage = 3;
     private ParticleSystem particle;
 
-    [SerializeField]
-    private TMP_Text damageText;
+    //[SerializeField]
+    //private TMP_Text damageText;
 
     private void Awake()
     {
@@ -16,12 +17,13 @@ public class AttackArea : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        if (!IsOwner) return;
         if (collider.GetComponent<EnemyHealth>() != null)
         {
             EnemyHealth health = collider.GetComponent<EnemyHealth>();
             health.Damage(damage);
             particle.Play();
-            damageText.text = damage.ToString();
+            //damageText.text = damage.ToString();
             particle.Stop();
         }
     }
