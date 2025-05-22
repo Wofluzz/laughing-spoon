@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUp_SO : MonoBehaviour
+namespace Inventory2D.Model
 {
-    // Start is called before the first frame update
-    void Start()
+    public abstract class PowerUp_SO : ScriptableObject
     {
-        
-    }
+        public string powerupName;
+        public float duration;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public virtual void Execute(GameObject player)
+        {
+
+        }
+
     }
+    
 }

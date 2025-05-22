@@ -10,6 +10,7 @@ public class PlayerMovements : MonoBehaviour
     private BoxCollider2D boxCollider;
     private float wallJumpCooldown;
     private float horizontalInput;
+    public bool isDashing;
 
 
     private void Awake()
@@ -41,7 +42,7 @@ public class PlayerMovements : MonoBehaviour
         anim.SetBool("grounded", isGrounded());
 
         //wall jump logic
-        if (wallJumpCooldown > 0.2f)
+        if (wallJumpCooldown > 0.2f && !isDashing)
         {
             body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 

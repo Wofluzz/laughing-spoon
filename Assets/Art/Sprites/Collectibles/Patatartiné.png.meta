@@ -1,0 +1,426 @@
+fileFormatVersion: 2
+guid: c346e8d756d00634688fb71e66bf3dac
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "Patatartin\xE9_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 14, y: -8}
+        - {x: 16, y: -7}
+        - {x: 16, y: 6}
+        - {x: 14, y: 6}
+        - {x: 10, y: 11}
+        - {x: 8, y: 12}
+        - {x: 7, y: 14}
+        - {x: -6, y: 14}
+        - {x: -8, y: 11}
+        - {x: -9, y: 11}
+        - {x: -14, y: 6}
+        - {x: -14, y: -9}
+        - {x: -10, y: -13}
+        - {x: -6, y: -14}
+        - {x: -5, y: -15}
+        - {x: 5, y: -15}
+        - {x: 6, y: -14}
+        - {x: 10, y: -13}
+        - {x: 14, y: -9}
+      tessellationDetail: 1
+      bones: []
+      spriteID: 2eeca67993a94ab4fb82aa07dfb96b15
+      internalID: -1341627771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Patatartin\xE9_1"
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 14, y: -8}
+        - {x: 16, y: -7}
+        - {x: 16, y: 6}
+        - {x: 14, y: 6}
+        - {x: 10, y: 11}
+        - {x: 8, y: 12}
+        - {x: 7, y: 14}
+        - {x: -6, y: 14}
+        - {x: -8, y: 11}
+        - {x: -9, y: 11}
+        - {x: -14, y: 6}
+        - {x: -14, y: -9}
+        - {x: -10, y: -13}
+        - {x: -6, y: -14}
+        - {x: -5, y: -15}
+        - {x: 5, y: -15}
+        - {x: 6, y: -14}
+        - {x: 10, y: -13}
+        - {x: 14, y: -9}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9018d5b0209942543ade24038b1cd794
+      internalID: -756706768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Patatartin\xE9_2"
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 14, y: -8}
+        - {x: 16, y: -7}
+        - {x: 16, y: 6}
+        - {x: 14, y: 6}
+        - {x: 10, y: 11}
+        - {x: 8, y: 12}
+        - {x: 7, y: 14}
+        - {x: -6, y: 14}
+        - {x: -8, y: 11}
+        - {x: -9, y: 11}
+        - {x: -14, y: 6}
+        - {x: -14, y: -9}
+        - {x: -10, y: -13}
+        - {x: -6, y: -14}
+        - {x: -5, y: -15}
+        - {x: 5, y: -15}
+        - {x: 6, y: -14}
+        - {x: 10, y: -13}
+        - {x: 14, y: -9}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46b2965b8c6030f41b705efe67e63a31
+      internalID: -800530673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Patatartin\xE9_3"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 14, y: -8}
+        - {x: 16, y: -7}
+        - {x: 16, y: 6}
+        - {x: 14, y: 6}
+        - {x: 10, y: 11}
+        - {x: 8, y: 12}
+        - {x: 7, y: 14}
+        - {x: -6, y: 14}
+        - {x: -8, y: 11}
+        - {x: -9, y: 11}
+        - {x: -14, y: 6}
+        - {x: -14, y: -9}
+        - {x: -10, y: -13}
+        - {x: -6, y: -14}
+        - {x: -5, y: -15}
+        - {x: 5, y: -15}
+        - {x: 6, y: -14}
+        - {x: 10, y: -13}
+        - {x: 14, y: -9}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dfc39509dd52144480b97c97d7a43c0
+      internalID: -1606127446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Patatartin\xE9_4"
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 14, y: -8}
+        - {x: 16, y: -7}
+        - {x: 16, y: 6}
+        - {x: 14, y: 6}
+        - {x: 10, y: 11}
+        - {x: 8, y: 12}
+        - {x: 7, y: 14}
+        - {x: -6, y: 14}
+        - {x: -8, y: 11}
+        - {x: -9, y: 11}
+        - {x: -14, y: 6}
+        - {x: -14, y: -9}
+        - {x: -10, y: -13}
+        - {x: -6, y: -14}
+        - {x: -5, y: -15}
+        - {x: 5, y: -15}
+        - {x: 6, y: -14}
+        - {x: 10, y: -13}
+        - {x: 14, y: -9}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32ff7454a9000d34b8a9b9cfb0bd215d
+      internalID: -663826047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Patatartin\xE9_5"
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 10, y: 5}
+        - {x: 10, y: 7}
+        - {x: 6, y: 11}
+        - {x: 4, y: 12}
+        - {x: 4, y: 14}
+        - {x: 2, y: 16}
+        - {x: -10, y: 16}
+        - {x: -12, y: 14}
+        - {x: -12, y: 11}
+        - {x: -13, y: 11}
+        - {x: -16, y: 8}
+        - {x: -16, y: -11}
+        - {x: -14, y: -13}
+        - {x: -10, y: -14}
+        - {x: -9, y: -15}
+        - {x: 5.867218, y: -14.12389}
+        - {x: 9.867218, y: -10.12389}
+        - {x: 16, y: 5}
+        - {x: 14, y: 7}
+      tessellationDetail: 1
+      bones: []
+      spriteID: 21000e18ef89add4e82ce061c9f9a6c6
+      internalID: -1081207394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Patatartin\xE9_6"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 10, y: 5}
+        - {x: 10, y: 7}
+        - {x: 5, y: 11}
+        - {x: 8, y: 13}
+        - {x: 7, y: 16}
+        - {x: -14, y: 16}
+        - {x: -16, y: 14}
+        - {x: -16, y: 13}
+        - {x: -13, y: 11}
+        - {x: -16, y: 8}
+        - {x: -16, y: -11}
+        - {x: -14, y: -13}
+        - {x: -10, y: -14}
+        - {x: -9, y: -15}
+        - {x: 12, y: -15}
+        - {x: 16, y: -11}
+        - {x: 16, y: 5}
+        - {x: 14, y: 7}
+      tessellationDetail: 1
+      bones: []
+      spriteID: 5f18a2c7c3087d743bae97dbd105d40f
+      internalID: -1089053041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      "Patatartin\xE9_0": -1341627771
+      "Patatartin\xE9_1": -756706768
+      "Patatartin\xE9_2": -800530673
+      "Patatartin\xE9_3": -1606127446
+      "Patatartin\xE9_4": -663826047
+      "Patatartin\xE9_5": -1081207394
+      "Patatartin\xE9_6": -1089053041
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

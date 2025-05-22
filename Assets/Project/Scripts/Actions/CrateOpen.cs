@@ -1,4 +1,5 @@
 using Inventory.Model;
+using Inventory2D.Model;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,9 @@ using UnityEngine;
 public class CrateOpen : MonoBehaviour
 {
     [SerializeField]
-    private GameObject[] items;
+    private ItemSO_2D[] itemData;
+    [SerializeField]
+    private GameObject itemObject;
     [SerializeField]
     private int quantity = 1;
     [SerializeField]
@@ -19,7 +22,7 @@ public class CrateOpen : MonoBehaviour
     {
         if (Opened) return;
         Opened = true;
-        StartCoroutine(SpawnLootAndDestroy(items));
+        StartCoroutine(SpawnLootAndDestroy(itemData));
     }
 
     private void Explode()
@@ -30,21 +33,23 @@ public class CrateOpen : MonoBehaviour
         Destroy(gameObject);
     }
 
-    IEnumerator SpawnLoot(GameObject[] items)
+    IEnumerator SpawnLoot(ItemSO_2D[] itemData)
     {
-        foreach (var item in items)
+        foreach (var item in itemData)
         {
-            GameObject n_item = Instantiate(item, new Vector3(transform.position.x, transform.position.y + 1, 0), Quaternion.identity);
+            GameObject n_item = Instantiate(itemObject, new Vector3(transform.position.x, transform.position.y + 1, 0), Quaternion.identity);
             float rm_posX = Random.Range(0, 2);
 
-            n_item.GetComponent<Rigidbody2D>().AddForce(new Vector2((Random.Range(0, 2) * 2 - 1) * 3, 5), ForceMode2D.Impulse);
+            PowerUpSpawner pSpawn = n_item.GetComponent<PowerUpSpawner>();
+            pSpawn.powerUpSO = item;
+            pSpawn.SetupPowerUp(item);
             yield return new WaitForSeconds(1);
         }
     }
 
-    IEnumerator SpawnLootAndDestroy(GameObject[] items)
+    IEnumerator SpawnLootAndDestroy(ItemSO_2D[] itemData)
     {
-        yield return StartCoroutine(SpawnLoot(items));
+        yield return StartCoroutine(SpawnLoot(itemData));
         Explode(); // maintenant seulement !
     }
 
