@@ -48,9 +48,9 @@ public class EnemyMovements : MonoBehaviour
     private void SetVelocity()
     {
         if (_targetDirection == Vector2.zero)
-            _rigidbody.velocity = Vector2.zero;
+            _rigidbody.linearVelocity = Vector2.zero;
         else
-            _rigidbody.velocity = _targetDirection.normalized * _speed;
+            _rigidbody.linearVelocity = _targetDirection.normalized * _speed;
     }
 
     public void SetupMovement(float speed, float rotationSpeed)

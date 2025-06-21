@@ -14,14 +14,14 @@ public class Knockback : NetworkBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
 
-        // Trouver le joueur du propriétaire ou du serveur, selon la situation
+        // Trouver le joueur du propriï¿½taire ou du serveur, selon la situation
         if (IsOwner)
         {
-            player = gameObject;  // Le joueur local est celui qui possède cet objet
+            player = gameObject;  // Le joueur local est celui qui possï¿½de cet objet
         }
         else
         {
-            player = FindClosestPlayer();  // Si ce n'est pas le propriétaire, on cherche le joueur le plus proche
+            player = FindClosestPlayer();  // Si ce n'est pas le propriï¿½taire, on cherche le joueur le plus proche
         }
     }
 
@@ -45,13 +45,13 @@ public class Knockback : NetworkBehaviour
     private IEnumerator ResetKnockBack()
     {
         yield return new WaitForSeconds(0.15f);
-        rb2d.velocity = Vector3.zero;
+        rb2d.linearVelocity = Vector3.zero;
     }
 
-    // Helper pour trouver le joueur le plus proche (si c'est nécessaire pour des ennemis)
+    // Helper pour trouver le joueur le plus proche (si c'est nï¿½cessaire pour des ennemis)
     private GameObject FindClosestPlayer()
     {
-        PlayerController[] players = FindObjectsOfType<PlayerController>();
+        PlayerController[] players = FindObjectsByType<PlayerController>(FindObjectsSortMode.None);
         GameObject closestPlayer = null;
         float closestDistance = Mathf.Infinity;
 

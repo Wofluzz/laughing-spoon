@@ -2,6 +2,7 @@ using Inventory.Model;
 using Inventory.UI;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using TMPro;
 using Unity.Netcode;
@@ -225,7 +226,10 @@ namespace Inventory
         private void Update()
         {
             if (!IsOwner) return;
-            if (FindObjectOfType<ChatManager>().isChatting) return;
+
+            // Find the first ChatManager instance instead of treating it as an array  
+            ChatManager chatManager = FindFirstObjectByType<ChatManager>();
+            if (chatManager != null && chatManager.isChatting) return;
 
             if (Input.GetKeyDown(KeyCode.I))
             {

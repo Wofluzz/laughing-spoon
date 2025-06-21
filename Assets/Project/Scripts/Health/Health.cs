@@ -48,6 +48,7 @@ public class Health : NetworkBehaviour
 
                 anim.SetTrigger("die");
                 GetComponent<PlayerController>().enabled = false;
+                GetComponent<PlayerMovements>().enabled = false;
                 dead = true;
             }
         }

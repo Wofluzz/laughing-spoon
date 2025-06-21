@@ -2,9 +2,12 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags:
   - World
+  - Enemy
+  - Breakables
+  - Bounds
   layers:
   - Default
   - TransparentFX
@@ -54,3 +57,5 @@ TagManager:
   - name: Objects
     uniqueID: 1056383913
     locked: 0
+  m_RenderingLayers:
+  - Default

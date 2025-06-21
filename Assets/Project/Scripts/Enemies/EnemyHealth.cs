@@ -35,11 +35,14 @@ public class EnemyHealth : MonoBehaviour
 
     public void Damage(float _damage)
     {
-
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
-        GameObject player = FindObjectOfType<PlayerController>().gameObject;
-        onHit?.Invoke();      
-        
+        PlayerController[] players = FindObjectsByType<PlayerController>(FindObjectsSortMode.None);
+        if (players.Length > 0)
+        {
+            GameObject player = players[0].gameObject;
+        }
+        onHit?.Invoke();
+
         if (currentHealth > 0)
         {
             StartCoroutine(Invulnerability());

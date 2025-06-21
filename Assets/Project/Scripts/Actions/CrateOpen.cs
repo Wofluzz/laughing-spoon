@@ -11,7 +11,7 @@ public class CrateOpen : MonoBehaviour
     [SerializeField]
     private GameObject itemObject;
     [SerializeField]
-    private int quantity = 1;
+    private int OpenningScore = 100;
     [SerializeField]
     private ParticleSystem ParticleSystem;
 
@@ -35,14 +35,25 @@ public class CrateOpen : MonoBehaviour
 
     IEnumerator SpawnLoot(ItemSO_2D[] itemData)
     {
+        // Mélanger la liste des items  
+        for (int i = itemData.Length - 1; i > 0; i--)
+        {
+            int randomIndex = Random.Range(0, i + 1);
+            var temp = itemData[i];
+            itemData[i] = itemData[randomIndex];
+            itemData[randomIndex] = temp;
+        }
+
         foreach (var item in itemData)
         {
             GameObject n_item = Instantiate(itemObject, new Vector3(transform.position.x, transform.position.y + 1, 0), Quaternion.identity);
             float rm_posX = Random.Range(0, 2);
 
             PowerUpSpawner pSpawn = n_item.GetComponent<PowerUpSpawner>();
+
             pSpawn.powerUpSO = item;
             pSpawn.SetupPowerUp(item);
+            StartCoroutine(EnableItemSO(pSpawn));
             yield return new WaitForSeconds(1);
         }
     }
@@ -51,6 +62,28 @@ public class CrateOpen : MonoBehaviour
     {
         yield return StartCoroutine(SpawnLoot(itemData));
         Explode(); // maintenant seulement !
+    }
+
+    IEnumerator EnableItemSO(PowerUpSpawner pSpawn)
+    {
+        pSpawn.enabled = false; // Désactiver le power-up pour empêcher l'interaction immédiate  
+        Collider2D collider = pSpawn.GetComponent<Collider2D>();
+        if (collider != null)
+        {
+            collider.enabled = false; // Désactiver le collider pour empêcher la récupération immédiate  
+        }
+        yield return new WaitForSeconds(1); // Attendre la fin de l'animation de sortie (ajuster la durée si nécessaire)  
+        if (collider != null)
+        {
+            collider.enabled = true; // Réactiver le collider pour permettre la récupération  
+        }
+        pSpawn.enabled = true; // Réactiver le power-up pour permettre l'interaction  
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.instance.AddScore(OpenningScore);
+        GameManager.instance.ShowScore(OpenningScore.ToString(), gameObject);
     }
 
 

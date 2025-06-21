@@ -26,7 +26,7 @@ public class TeleporterManager : MonoBehaviour
     private void Start()
     {
         // Abonne tous les téléporteurs à l'événement d'activation
-        Teleporter[] allTeleporters = FindObjectsOfType<Teleporter>();
+        Teleporter[] allTeleporters = FindObjectsByType<Teleporter>(FindObjectsSortMode.None);
         foreach (Teleporter teleporter in allTeleporters)
         {
             teleporter.OnTPActivation += AddTeleporter;

@@ -1,6 +1,7 @@
+using System.Linq;
+using Unity.Cinemachine;
 using Unity.Netcode;
 using UnityEngine;
-using Cinemachine;
 
 public class PlayerController : NetworkBehaviour
 {
@@ -10,7 +11,7 @@ public class PlayerController : NetworkBehaviour
     [SerializeField] private float forceDamping;
     [SerializeField] private StaminaWheeel staminaWheel;
 
-    [SerializeField] private CinemachineVirtualCamera vc;
+    [SerializeField] private CinemachineCamera vc;
     [SerializeField] private AudioListener listener;
     private Rigidbody2D body;
     private Animator anim;
@@ -39,9 +40,9 @@ public class PlayerController : NetworkBehaviour
     private void Update()
     {
         if (!IsOwner) return;
-        if (FindObjectOfType<ChatManager>().isChatting) return;
+        if (FindObjectsByType<ChatManager>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault()?.isChatting == true) return;
         Walk(speed);
-        //Gere les paramètres d'animation
+        //Gere les paramï¿½tres d'animation
         IsWalking = Input.GetAxisRaw("Horizontal") != 0 | Input.GetAxisRaw("Vertical") != 0;
         if (
             IsWalking && Input.GetButton("Sprint") 
@@ -70,6 +71,6 @@ public class PlayerController : NetworkBehaviour
         {
             ForceToApply = Vector2.zero;
         }
-        body.velocity = moveForce;
+        body.linearVelocity = moveForce;
     }
 }

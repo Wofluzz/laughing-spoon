@@ -8,6 +8,7 @@ namespace Inventory2D.Model
     {
         public string powerupName;
         public float duration;
+        public int Score = 100; 
 
         public virtual void Execute(GameObject player)
         {

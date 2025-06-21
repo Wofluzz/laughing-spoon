@@ -10,7 +10,7 @@ public class UIController : NetworkBehaviour
     void Update()
     {
         if (!IsOwner) IsPlayerUI = false;
-        UIController[] controllers = FindObjectsOfType<UIController>();
+        UIController[] controllers = FindObjectsByType<UIController>(FindObjectsSortMode.None);
 
         foreach (UIController controller in controllers)
         {

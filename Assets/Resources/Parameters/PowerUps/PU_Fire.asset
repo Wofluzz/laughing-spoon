@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4d1566dc02a37045a656258555192e3, type: 3}
+  m_Script: {fileID: 11500000, guid: caf7afb41a8f3624eb4c85a95e29c229, type: 3}
   m_Name: PU_Fire
   m_EditorClassIdentifier: 
-  powerupName: Fire
-  duration: 30
+  powerupName: FireballLauncher
+  duration: 0
+  Score: 150
+  cooldown: 0.2
+  gm_fireball: {fileID: 4039468161847971617, guid: d8a4d8d33b42f6b45827ef8b86056d6e, type: 3}
+  powerUpSound: {fileID: 8300000, guid: e3f6f5e13be4c9e449f89d77d1d30ef4, type: 3}

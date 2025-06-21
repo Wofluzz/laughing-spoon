@@ -34,7 +34,7 @@ public class PlayerAwarenessController : MonoBehaviour
     private Transform GetClosestPlayer()
     {
         // Trouver tous les objets PlayerController dans la scène
-        var players = FindObjectsOfType<PlayerController>();
+        var players = FindObjectsByType<PlayerController>(FindObjectsSortMode.None);
 
         if (players.Length == 0)
             return null;

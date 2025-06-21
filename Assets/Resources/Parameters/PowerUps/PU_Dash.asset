@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerupName: Dash
   duration: 0
+  Score: 100
   dashForce: 50
-  dashDuration: 0.2
+  dashDuration: 0.5
+  powerUpSound: {fileID: 8300000, guid: d16143e654ed0ef49b68d5f545fe7c0f, type: 3}

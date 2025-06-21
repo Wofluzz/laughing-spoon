@@ -3,6 +3,7 @@ using Inventory.Model;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Netcode;
 using UnityEditor;
 using UnityEngine;
@@ -42,10 +43,10 @@ public class EntityController : NetworkBehaviour
     }
     
 
-    private void InitializeComponents()
+private void InitializeComponents()
     {
-        audioSource = FindObjectOfType<InventoryController>().GetComponent<AudioSource>();
-        inventoryController = FindObjectOfType<InventoryController>().GetComponent<InventoryController>();
+        audioSource = FindObjectsByType<InventoryController>(FindObjectsSortMode.None)?.FirstOrDefault()?.GetComponent<AudioSource>();
+        inventoryController = FindObjectsByType<InventoryController>(FindObjectsSortMode.None)?.FirstOrDefault();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
         if (entity.EntityType != EntityType.Humans)

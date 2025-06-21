@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+using System.Linq;
 
 public class TeleportersUI : MonoBehaviour
 {
@@ -51,7 +52,7 @@ public class TeleportersUI : MonoBehaviour
     public void TeleportTo(int teleporterId)
     {
         TeleporterManager.TeleporterIdentity targetTeleporter = teleporterManager.Teleporters[teleporterId];
-        Transform player = FindObjectOfType<PlayerController>().transform;
+        Transform player = FindObjectsByType<PlayerController>(FindObjectsSortMode.None)?.FirstOrDefault() ?.transform;
         player.position = targetTeleporter.transform.position;
         Debug.Log("Téléportation vers: " + targetTeleporter.PlaceName);
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -31,7 +32,11 @@ public class PlayerAttack : NetworkBehaviour
     void Update()
     {
         if (!IsOwner) return;
-        if (FindObjectOfType<ChatManager>().isChatting) return;
+
+        // Replace the problematic line in the Update method:
+
+        // With the following corrected code:
+        if (FindObjectsByType<ChatManager>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault()?.isChatting == true) return;
        
         if (Input.GetButtonDown("Attack"))
         {
