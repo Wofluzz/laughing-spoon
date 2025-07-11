@@ -2,9 +2,8 @@ using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
 
-public class Health : NetworkBehaviour
+public class Health : MonoBehaviour
 {
-
     [Header("Health")]
     [SerializeField] private float startingHealth;
     public float currentHealth { get; private set; }
@@ -17,7 +16,6 @@ public class Health : NetworkBehaviour
     [SerializeField] private int numberOfFlashes;
     private SpriteRenderer spriteRend;
 
-
     private void Awake()
     {
         currentHealth = startingHealth;
@@ -27,7 +25,6 @@ public class Health : NetworkBehaviour
 
     public void TakeDamage(float _damage)
     {
-        if (!IsOwner) return;
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
 
         if (currentHealth > 0)
@@ -42,13 +39,9 @@ public class Health : NetworkBehaviour
         {
             if (!dead)
             {
-                //Desctiver les classe ratachées au player
-                /*foreach (Behaviour component in components)
-                    component.enabled = false;*/
-
                 anim.SetTrigger("die");
-                GetComponent<PlayerController>().enabled = false;
                 GetComponent<PlayerMovements>().enabled = false;
+                GetComponent<PlayerMovements>().InvokingPlayerDeath(); // Fixed the error by qualifying the static method with the class name  
                 dead = true;
             }
         }
@@ -56,7 +49,6 @@ public class Health : NetworkBehaviour
 
     public void AddHealth(float _value)
     {
-        if (!IsOwner) return;
         currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
     }
 
@@ -64,6 +56,7 @@ public class Health : NetworkBehaviour
     {
         currentHealth = Mathf.Clamp(startingHealth + _value, 0, startingHealth + _value);
     }
+
     private IEnumerator Invulnerability()
     {
         Physics2D.IgnoreLayerCollision(10, 11, true);
@@ -76,19 +69,15 @@ public class Health : NetworkBehaviour
         }
         Physics2D.IgnoreLayerCollision(10, 11, false);
     }
+
     public void Respawn()
     {
-        if (!IsOwner) return;
         dead = false;
         AddHealth(startingHealth);
         anim.ResetTrigger("die");
         anim.Play("Idle");
         StartCoroutine(Invulnerability());
 
-        //Activer les classe ratachées au player
-        /*foreach (Behaviour component in components)
-            component.enabled = true;*/
         GetComponent<PlayerMovements>().enabled = true;
-
     }
 }

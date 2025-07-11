@@ -12,7 +12,7 @@ public class CircleFadeEffectOnPlayer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        gameObject.GetComponentInChildren<CutoffMaskUI>().enabled = true;
+        GetComponentInChildren<CutoffMaskUI>().enabled = true;
         circleFade = GetComponent<Transform>();
         anim = GetComponent<Animator>();
         
@@ -24,17 +24,17 @@ public class CircleFadeEffectOnPlayer : MonoBehaviour
     private void OnPlayerDied()
     {
         GetComponent<Animator>().enabled = true;
-        gameObject.GetComponentInChildren<CutoffMaskUI>().enabled = true;
+        GetComponentInChildren<CutoffMaskUI>().enabled = true;
         anim.Play("CircFadeIn");
     }
 
     private IEnumerator OnGameStart()
     {
         GetComponent<Animator>().enabled = true; 
-        gameObject.GetComponentInChildren<CutoffMaskUI>().enabled = true;
+        GetComponentInChildren<CutoffMaskUI>().enabled = true;
         anim.Play("CircFadeOut");
         yield return new WaitForSeconds(5f);
-        gameObject.GetComponentInChildren<CutoffMaskUI>().enabled = false;
+        GetComponentInChildren<CutoffMaskUI>().enabled = false;
     }
 
     // Update is called once per frame

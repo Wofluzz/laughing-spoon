@@ -43,7 +43,7 @@ namespace Inventory2D.Model
                 {
                     fireball.transform.position = player.transform.position;
                     fireball.transform.rotation = player.transform.rotation;
-                    fireball.GetComponent<FireBall>().SetDirection(player.transform.localScale.x);
+                    fireball?.GetComponent<FireBall>()?.SetDirection(player.transform.localScale.x);
                 }
 
                 // Utiliser la méthode Cooldown pour gérer le délai entre les attaques  

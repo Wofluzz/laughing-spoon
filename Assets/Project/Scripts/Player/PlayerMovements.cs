@@ -13,21 +13,26 @@ public class PlayerMovements : MonoBehaviour
 
     private Rigidbody2D body;
     private Animator anim;
-    private BoxCollider2D boxCollider;
+    private CapsuleCollider2D playerCollider;
+    private BoxCollider2D pl_FeetCollider;
 
     private float wallJumpCooldown;
     private float horizontalInput;
     public bool isDashing; // Public to be accessible by PowerUp script
+    public bool isJumping { get; private set;}
 
     private float normalGravityScale = 5f; // Store the normal gravity scale
 
+    
+
     public static event Action OnPlayerDied;
 
-    private void Awake()
+    private void Start()
     {
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        boxCollider = GetComponent<BoxCollider2D>();
+        playerCollider = GetComponent<CapsuleCollider2D>();
+        pl_FeetCollider = GetComponent<BoxCollider2D>();
         // Initialize normalGravityScale from Rigidbody2D
         normalGravityScale = body.gravityScale;
     }
@@ -116,13 +121,15 @@ public class PlayerMovements : MonoBehaviour
 
     private void Jump()
     {
-        if (isGrounded())
-        {
-            body.linearVelocity = new Vector2(body.linearVelocity.x, jumpPower);
-            anim.SetTrigger("jump");
-            Debug.Log("Jump: Grounded Jump");
-        }
-        else if (canWallClimb && onWall() && !isGrounded())
+        if (!pl_FeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) return;
+
+        Vector2 jumpVelo = new (0, jumpPower);
+        body.linearVelocity = jumpVelo;
+        anim.SetTrigger("jump");
+        isJumping = true;
+        Debug.Log("Jump: Grounded Jump");
+        
+        if (canWallClimb && onWall() && !isGrounded())
         {
             if (horizontalInput == 0) // Wall jump away from wall without input
             {
@@ -143,23 +150,23 @@ public class PlayerMovements : MonoBehaviour
 
     private bool isGrounded()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
 
         Color rayColor = (raycastHit.collider != null) ? Color.green : Color.red;
-        Debug.DrawRay(boxCollider.bounds.center + new Vector3(boxCollider.bounds.extents.x, 0), Vector2.down * (boxCollider.bounds.extents.y + 0.1f), rayColor);
-        Debug.DrawRay(boxCollider.bounds.center - new Vector3(boxCollider.bounds.extents.x, 0), Vector2.down * (boxCollider.bounds.extents.y + 0.1f), rayColor);
-        Debug.DrawRay(boxCollider.bounds.center - new Vector3(boxCollider.bounds.extents.x, boxCollider.bounds.extents.y + 0.1f), Vector2.right * (boxCollider.bounds.size.x), rayColor);
+        Debug.DrawRay(playerCollider.bounds.center + new Vector3(playerCollider.bounds.extents.x, 0), Vector2.down * (playerCollider.bounds.extents.y + 0.1f), rayColor);
+        Debug.DrawRay(playerCollider.bounds.center - new Vector3(playerCollider.bounds.extents.x, 0), Vector2.down * (playerCollider.bounds.extents.y + 0.1f), rayColor);
+        Debug.DrawRay(playerCollider.bounds.center - new Vector3(playerCollider.bounds.extents.x, playerCollider.bounds.extents.y + 0.1f), Vector2.right * (playerCollider.bounds.size.x), rayColor);
 
         return raycastHit.collider != null;
     }
 
     private bool onWall()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer);
 
         Color rayColor = (raycastHit.collider != null) ? Color.green : Color.red;
-        Vector2 origin = boxCollider.bounds.center;
-        Vector2 size = boxCollider.bounds.size;
+        Vector2 origin = playerCollider.bounds.center;
+        Vector2 size = playerCollider.bounds.size;
         float distance = 0.1f;
         Vector2 direction = new Vector2(transform.localScale.x, 0);
 
@@ -173,8 +180,8 @@ public class PlayerMovements : MonoBehaviour
         Debug.DrawLine(topRight, bottomRight, rayColor);
         Debug.DrawLine(bottomRight, bottomLeft, rayColor);
         Debug.DrawLine(bottomLeft, topLeft, rayColor);
-        Debug.DrawLine(origin + new Vector2(boxCollider.bounds.extents.x * Mathf.Sign(transform.localScale.x), boxCollider.bounds.extents.y), topLeft, rayColor);
-        Debug.DrawLine(origin + new Vector2(boxCollider.bounds.extents.x * Mathf.Sign(transform.localScale.x), -boxCollider.bounds.extents.y), bottomLeft, rayColor);
+        Debug.DrawLine(origin + new Vector2(playerCollider.bounds.extents.x * Mathf.Sign(transform.localScale.x), playerCollider.bounds.extents.y), topLeft, rayColor);
+        Debug.DrawLine(origin + new Vector2(playerCollider.bounds.extents.x * Mathf.Sign(transform.localScale.x), -playerCollider.bounds.extents.y), bottomLeft, rayColor);
 
         return raycastHit.collider != null;
     }
@@ -187,17 +194,7 @@ public class PlayerMovements : MonoBehaviour
         {
             Debug.Log("Player out of bounds, taking damage.");
 
-            AudioSource audioSource = GetComponent<AudioSource>();
-            if (audioSource != null && DeathAudio != null)
-            {
-                audioSource.PlayOneShot(DeathAudio);
-            }
-            else
-            {
-                Debug.LogWarning("AudioSource or DeathAudio clip missing on player for 'Bounds' collision.");
-            }
-
-            OnPlayerDied?.Invoke();
+            InvokingPlayerDeath();
 
             if (health != null)
             {
@@ -217,5 +214,19 @@ public class PlayerMovements : MonoBehaviour
                 powerUpController.enabled = false;
             }
         }
+    }
+
+    public void InvokingPlayerDeath()
+    {
+        AudioSource audioSource = GetComponent<AudioSource>();
+        if (audioSource != null && DeathAudio != null)
+        {
+            audioSource.PlayOneShot(DeathAudio);
+        }
+        else
+        {
+            Debug.LogWarning("AudioSource or DeathAudio clip missing on player for 'Bounds' collision.");
+        }
+        OnPlayerDied?.Invoke();
     }
 }

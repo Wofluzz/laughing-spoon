@@ -17,6 +17,8 @@ public class BubbleController : MonoBehaviour
     private float currentDirection; // Direction horizontale (1 pour droite, -1 pour gauche)
     private bool captured = false; // Indique si un ennemi a été capturé
     private float initialXPosition; // Position X de la bulle au moment de la capture, pour l'oscillation
+    [SerializeField]
+    private GameObject capturedObject;
 
     // ====== Références aux composants externes ======
     public VisualEffect visualEffect; // Le VFX à jouer (par exemple, un effet de 'pop')
@@ -38,7 +40,14 @@ public class BubbleController : MonoBehaviour
 
             // Décaler la bulle légèrement de la position du joueur au départ
             // Important : Utilisez transform.position directement pour définir la position
-            transform.position = new Vector2(player.transform.position.x + (currentDirection * 0.5f), player.transform.position.y);
+            
+            if (player.GetComponent<PlayerMovements>().isJumping)
+            {
+                transform.position = new Vector2(player.transform.position.x + (currentDirection * 0.5f), player.transform.position.y - 1);
+            } else
+            {
+                transform.position = new Vector2(player.transform.position.x + (currentDirection * 0.5f), player.transform.position.y);
+            }
         }
         else
         {
@@ -51,35 +60,43 @@ public class BubbleController : MonoBehaviour
     {
         if (!captured)
         {
-            // Mouvement horizontal de la bulle avant capture
             transform.Translate(Vector2.right * currentDirection * initialSpeed * Time.deltaTime);
 
-            // Gérer la durée de vie de la bulle avant capture
             lifetime -= Time.deltaTime;
             if (lifetime <= 0)
             {
-                OnBubbleHit(); // La bulle éclate si elle n'a rien capturé à temps
+                OnBubbleHit(); 
             }
         }
-        else // Si un ennemi est capturé
+        else 
         {
-            // 1. Mouvement vertical (montée)
+            
             float newY = transform.position.y + verticalAscentSpeed * Time.deltaTime;
-
-            // 2. Oscillation horizontale autour de la position X initiale au moment de la capture
-            // Mathf.Sin(Time.time * oscillationSpeed) crée une valeur entre -1 et 1 qui change avec le temps
             float oscillationOffset = Mathf.Sin(Time.time * oscillationSpeed) * oscillationAmplitude;
             float oscillationX = initialXPosition + oscillationOffset;
 
-            // 3. Appliquer la nouvelle position combinée
             transform.position = new Vector2(oscillationX, newY);
 
-            // S'assure que l'ennemi capturé reste bien au centre de la bulle
             UpdateCapturedEnemyPosition();
+        }
+
+        if (capturedObject)
+        {
+            if (!capturedObject.activeInHierarchy)
+            {
+                capturedObject.SetActive(true);
+                Debug.Log("L'objet capturé n'était pas actif dans le monde, il a été réactivé.");
+            }
+
+            if (capturedObject.CompareTag("Objects"))
+                CaptureObjectOrEnemies(CapturedType.Object);
+            else if (capturedObject.CompareTag("Enemy"))
+                CaptureObjectOrEnemies(CapturedType.Enemy);
+            else
+                Debug.LogWarning("Pas de type associé à cet objet !");
         }
     }
 
-    // Cette méthode peut être appelée si vous voulez changer la direction de la bulle après la création
     public void SetDirection(float dir)
     {
         currentDirection = dir;
@@ -91,15 +108,13 @@ public class BubbleController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            collision.gameObject.transform.SetParent(this.transform);
-            collision.transform.localPosition = Vector3.zero;
-            captured = true;
-            initialXPosition = this.transform.position.x;
-            var enemyCollider = collision.gameObject.GetComponent<Collider2D>();
-            if (enemyCollider != null) enemyCollider.enabled = false;
-
-            GameManager.instance.AddScore(100);
-            OnBubbleHit(); 
+            capturedObject = collision.gameObject;
+            CaptureObjectOrEnemies(CapturedType.Enemy);
+        }
+        else if (collision.gameObject.CompareTag("Objects"))
+        {
+            capturedObject = collision.gameObject;
+            CaptureObjectOrEnemies(CapturedType.Enemy);
         }
         else if (!collision.gameObject.CompareTag("Player")) 
         {
@@ -109,6 +124,37 @@ public class BubbleController : MonoBehaviour
         {
             FindInAudiosAndPlay("Bounce"); 
         }
+    }
+
+    private void CaptureObjectOrEnemies(CapturedType type)
+    {
+        switch (type)
+        {
+            case CapturedType.Object:
+                capturedObject.transform.SetParent(this.transform);
+                capturedObject.transform.localPosition = Vector3.zero;
+                captured = true;
+                initialXPosition = this.transform.position.x;
+                verticalAscentSpeed = 2f;
+
+                //OnBubbleHit();
+                break;
+            case CapturedType.Enemy:
+                capturedObject.transform.SetParent(this.transform);
+                capturedObject.transform.localPosition = Vector3.zero;
+                captured = true;
+                initialXPosition = this.transform.position.x;
+                var enemyCollider = capturedObject.GetComponent<Collider2D>();
+                if (enemyCollider != null) enemyCollider.enabled = false;
+                verticalAscentSpeed = 2f;
+
+                GameManager.instance.AddScore(100);
+                //OnBubbleHit();
+                break;
+            default:
+                break;
+        }
+        
     }
 
     // ==== Fonctions utilitaires ====
@@ -141,6 +187,12 @@ public class BubbleController : MonoBehaviour
     {
         public string name;
         public AudioClip clip;
+    }
+
+    private enum CapturedType
+    {
+        Object,
+        Enemy,
     }
 
     private void UpdateCapturedEnemyPosition()

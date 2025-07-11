@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Breakables
   - Bounds
+  - Objects
+  - Spawner
   layers:
   - Default
   - TransparentFX

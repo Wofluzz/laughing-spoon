@@ -21,13 +21,12 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BiomeMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 03fcba06e4dcd9f4d89cb768ca6e1c59, type: 3}
+  m_Shader: {fileID: 4800000, guid: 46babb2081bbb9e4f988487341de4bf2, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _BIOMES_SPACE
+  m_ValidKeywords: []
   m_InvalidKeywords:
-  - _ENUM_A
+  - _BIOMES_SPACE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -58,6 +57,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _GrassMask:
+        m_Texture: {fileID: 2800000, guid: e1910a3ded481644a9618c227b29a9c0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: e04d0c8003f5b724186d93990ce826ca, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -74,12 +77,16 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _ReplacementTex:
+        m_Texture: {fileID: 2800000, guid: e04d0c8003f5b724186d93990ce826ca, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_02e4d1c137ff480f9538a7df8ab5ffd1_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: c65ac028289ecae4b9ba9e370fbdc064, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_2c8fbc3b99c0427983db98ab061034b5_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: c65ac028289ecae4b9ba9e370fbdc064, type: 3}
+        m_Texture: {fileID: 2800000, guid: e04d0c8003f5b724186d93990ce826ca, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_3c055f8293104a409af1fd96c13e8416_Texture_1_Texture2D:
@@ -90,6 +97,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: e04d0c8003f5b724186d93990ce826ca, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_d3efb24108854ada91ac39155949742a_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: e1910a3ded481644a9618c227b29a9c0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_d7f5d7421c0c41a5bac6be3dfbeb0dfc_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: 6e819e1ecf76d644d8bc1d88f0bcf450, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -98,7 +109,15 @@ Material:
         m_Texture: {fileID: 2800000, guid: e04d0c8003f5b724186d93990ce826ca, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_fbfa992582b84a27b372cb348116941f_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: e04d0c8003f5b724186d93990ce826ca, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_ffdea1894907430e80834fa9d100612e_Out_0_Texture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TileMask:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -119,6 +138,7 @@ Material:
     - _BIOMES: 2
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
+    - _BlendSmoothness: 0.01
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -128,6 +148,8 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _GrassBottomThreshold: 0
+    - _GrassTopThreshold: 0.693
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -140,7 +162,9 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
+    - _BiomeColor: {r: 1, g: 0.056943707, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _CurrentBiomeColor: {r: 0, g: 1, b: 0.0056221485, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

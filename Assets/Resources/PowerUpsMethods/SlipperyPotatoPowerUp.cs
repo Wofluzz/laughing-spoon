@@ -65,7 +65,8 @@ namespace Inventory2D.Model
                 // Important: Temporarily set gravity to 0 or a very low value during the dash
                 // to prevent it from immediately pulling the player down and reducing horizontal speed.
                 //pm.SetGravityScale(0f); // Set gravity scale via PlayerMovements to manage it centrally
-                rb.linearVelocity = new Vector2(lastDirection * dashForce, 0f); // Set y-linearVelocity to 0 for a purely horizontal dash, or keep rb.linearVelocity.y if you want to preserve vertical momentum. I've set it to 0 for a clearer horizontal dash.
+                Vector2 dashVelo = new (lastDirection * dashForce, 0f);
+                rb.linearVelocity += dashVelo;  // Set y-linearVelocity to 0 for a purely horizontal dash, or keep rb.linearVelocity.y if you want to preserve vertical momentum. I've set it to 0 for a clearer horizontal dash.
 
                 Debug.Log($"Dash initiated. linearVelocity: {rb.linearVelocity}, isDashing: {pm.isDashing}");
 

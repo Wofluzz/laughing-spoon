@@ -16,21 +16,17 @@ namespace Inventory2D.Model
         public override void Execute(GameObject player)
         {
             player.GetComponent<AudioSource>().PlayOneShot(powerUpSound);
-            if (GameManager.instance.CurrentPowerUp != this)
-            {
-                GameManager.instance.CurrentPowerUp = this;
-                GameManager.instance.AddCoins(Coins);
-                GameManager.instance.StartCoroutine(RemovePowerUpAfterDuration());
-            }
+            GameManager.instance.AddCoins(Coins);
+            Debug.Log($"Added {Coins} coins.");
+
+            // Remove dependency on CurrentPowerUp to allow multiple pickups  
+            GameManager.instance.StartCoroutine(RemovePowerUpAfterDuration());
         }
 
         private IEnumerator RemovePowerUpAfterDuration()
         {
-            yield return new WaitForSeconds(duration);
-            if (GameManager.instance.CurrentPowerUp == this)
-            {
-                GameManager.instance.CurrentPowerUp = null;
-            }
+            yield return new WaitForSeconds(0.1f);
+            Debug.Log("Power-up duration ended.");
         }
     }
 }

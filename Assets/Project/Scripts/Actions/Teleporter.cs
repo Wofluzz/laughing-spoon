@@ -4,19 +4,26 @@ using UnityEngine;
 
 public class Teleporter : MonoBehaviour
 {
-    // Référence vers la position du téléporteur
-    public Transform teleporterTransform;
+    public Transform ToPortal;
 
-    // Délégué pour l'événement de déblocage d'un nouveau téléporteur
-    public delegate void UnlockNewTP(Teleporter teleporter);
-    public event UnlockNewTP OnTPActivation;
-
-    // Méthode pour déverrouiller le téléporteur
-    public void UnlockTeleporter()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Téléporteur déverrouillé: " + gameObject.name);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Player in Door");
+        }
+    }
 
-        // Déclenche l'événement pour informer le TeleporterManager
-        OnTPActivation?.Invoke(this);
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            Collider2D playerCollider = Physics2D.OverlapCircle(transform.position, 0.5f, LayerMask.GetMask("Player"));
+            if (playerCollider != null)
+            {
+                Debug.Log("Teleporting...");
+                playerCollider.transform.position = ToPortal.transform.position;
+            }
+        }
     }
 }

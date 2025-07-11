@@ -1,6 +1,8 @@
 using Inventory2D.Model;
+using NUnit.Framework;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +13,9 @@ public class GameManager : MonoBehaviour
     public int coinCount = 0, score = 0;
 
     public PowerUp_SO CurrentPowerUp;
+
+    public bool Checkpoint;
+    public GameObject CheckPointObj;
 
     // Etats du jeu  
     public bool isPaused = false;
@@ -71,8 +76,20 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         coinCount = PlayerPrefs.GetInt("Coins", 0);
+        GameObject player = FindAnyObjectByType<PlayerMovements>().gameObject;
+        Vector3 startpos;
+        if (!Checkpoint)
+        {
+            startpos = GameObject.FindGameObjectsWithTag("Spawner")[0].transform.position;
+
+        }
+        else
+        {
+            startpos = CheckPointObj.transform.position;
+        }
+        player.transform.position = startpos;
         OnValueChanged += (valTypes) => UpdateValuesText(valTypes);
-        PlayerMovements.OnPlayerDied += () => StartCoroutine(DelayedEndgame());
+        PlayerMovements.OnPlayerDied += DeathEndGame;
 
         // S'assurer que les textes sont masqués au démarrage si le tableau n'est pas visible
         if (!showBoard)
@@ -80,6 +97,11 @@ public class GameManager : MonoBehaviour
             scoreText.gameObject.SetActive(false);
             coinText.gameObject.SetActive(false);
         }
+    }
+
+    private void DeathEndGame()
+    {
+        StartCoroutine(DelayedEndgame());
     }
 
     private IEnumerator DelayedEndgame()
@@ -90,28 +112,35 @@ public class GameManager : MonoBehaviour
 
     private void UpdateValuesText(Values valTypes)
     {
-        // Activer le panneau si une valeur change et qu'il n'est pas déjà affiché
-        if (!showBoard) // S'il n'est pas censé être affiché via Tab, on le montre temporairement
+        // Vérifie si les objets TextMeshProUGUI sont null avant de les utiliser  
+        if (scoreText == null || coinText == null)
         {
-            showBoard = true; // On met à jour l'état interne pour l'animation
-            TriggerBoardAnimation(true); // Lance l'animation pour montrer le panneau
+            Debug.LogWarning("TextMeshProUGUI objects are null. Ensure they are properly assigned.");
+            return;
+        }
+
+        // Activer le panneau si une valeur change et qu'il n'est pas déjà affiché  
+        if (!showBoard) // S'il n'est pas censé être affiché via Tab, on le montre temporairement  
+        {
+            showBoard = true; // On met à jour l'état interne pour l'animation  
+            TriggerBoardAnimation(true); // Lance l'animation pour montrer le panneau  
         }
 
         switch (valTypes)
         {
             case Values.score:
                 scoreText.text = "Score : " + score.ToString("D10");
-                scoreText.gameObject.SetActive(true); // S'assurer que le texte du score est visible
+                scoreText.gameObject.SetActive(true); // S'assurer que le texte du score est visible  
                 break;
             case Values.coins:
                 coinText.text = coinCount.ToString() + " <sprite name=\"PotatoCoin\" index=0>";
-                coinText.gameObject.SetActive(true); // S'assurer que le texte des pièces est visible
+                coinText.gameObject.SetActive(true); // S'assurer que le texte des pièces est visible  
                 break;
             default:
                 break;
         }
 
-        // Lance la coroutine pour cacher les compteurs après un délai
+        // Lance la coroutine pour cacher les compteurs après un délai  
         StartCoroutine(HideCounter(valTypes));
     }
 
@@ -160,6 +189,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
 
     public void AddCoins(int value)
     {
@@ -235,4 +265,5 @@ public class GameManager : MonoBehaviour
 
         currentBoardAnimationCoroutine = null; // Réinitialise la référence de la coroutine une fois terminée
     }
+
 }

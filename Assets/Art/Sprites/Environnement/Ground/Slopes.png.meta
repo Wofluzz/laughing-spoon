@@ -3,7 +3,7 @@ guid: c65ac028289ecae4b9ba9e370fbdc064
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 15
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -67,7 +67,7 @@ TextureImporter:
   swizzle: 50462976
   cookieLightType: 0
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -80,7 +80,7 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -93,7 +93,7 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -106,7 +106,7 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -127,12 +127,13 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 45
-        width: 15
-        height: 15
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 7.5, y: 7.5}
         - {x: -7.5, y: -7.5}
@@ -141,10 +142,9 @@ TextureImporter:
         - {x: 7.5, y: 7.5}
       physicsShape:
       - - {x: 7.5, y: 7.5}
-        - {x: -7.5, y: -7.5}
-        - {x: -7.5, y: -7.5}
-        - {x: 7.5, y: -7.5}
-        - {x: 7.5, y: 7.5}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
       tessellationDetail: 1
       bones: []
       spriteID: 467f70d0df8ca364cb25eaa879ae2281
@@ -157,13 +157,14 @@ TextureImporter:
       name: Slope_Dirt_Right
       rect:
         serializedVersion: 2
-        x: 15
-        y: 45
-        width: 15
-        height: 15
+        x: 32
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 7.5, y: 7.5}
         - {x: -7.5, y: -7.5}
@@ -171,11 +172,9 @@ TextureImporter:
         - {x: 7.5, y: -7.5}
         - {x: 7.5, y: 7.5}
       physicsShape:
-      - - {x: 7.5, y: 7.5}
-        - {x: -7.5, y: -7.5}
-        - {x: -7.5, y: -7.5}
-        - {x: 7.5, y: -7.5}
-        - {x: 7.5, y: 7.5}
+      - - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 7a2f5ed73385b6540b61256b09ec468d
@@ -188,13 +187,14 @@ TextureImporter:
       name: Slope_DnG_Right
       rect:
         serializedVersion: 2
-        x: 30
-        y: 45
-        width: 15
-        height: 15
+        x: 64
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 7.5, y: 7.4734764}
         - {x: -7.5, y: -7.5}
@@ -202,11 +202,9 @@ TextureImporter:
         - {x: 7.5, y: -7.5}
         - {x: 7.5, y: 7.5}
       physicsShape:
-      - - {x: 7.5, y: 7.5}
-        - {x: -7.5, y: -7.5}
-        - {x: -7.5, y: -7.5}
-        - {x: 7.5, y: -7.5}
-        - {x: 7.5, y: 7.5}
+      - - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 1c6b62b85743b0941820523ea7fb5084
@@ -220,12 +218,13 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 30
-        width: 15
-        height: 15
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -7.5, y: 7.5}
         - {x: -7.5, y: -7.5}
@@ -233,11 +232,9 @@ TextureImporter:
         - {x: 7.5, y: -7.5}
         - {x: -7.5, y: 7.5}
       physicsShape:
-      - - {x: -7.5, y: 7.5}
-        - {x: -7.5, y: -7.5}
-        - {x: 7.5, y: -7.5}
-        - {x: 7.5, y: -7.5}
-        - {x: -7.5, y: 7.5}
+      - - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: -16, y: 16}
       tessellationDetail: 1
       bones: []
       spriteID: 07a78878c41d548408c8117b80d7a4ea
@@ -250,13 +247,14 @@ TextureImporter:
       name: Slope_Dirt_Left
       rect:
         serializedVersion: 2
-        x: 15
-        y: 30
-        width: 15
-        height: 15
+        x: 32
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -7.5, y: 7.5}
         - {x: -7.5, y: -7.5}
@@ -264,11 +262,9 @@ TextureImporter:
         - {x: 7.5, y: -7.5}
         - {x: -7.479743, y: 7.5}
       physicsShape:
-      - - {x: -7.5, y: 7.5}
-        - {x: -7.5, y: -7.5}
-        - {x: 7.5, y: -7.5}
-        - {x: 7.5, y: -7.5}
-        - {x: -7.5, y: 7.5}
+      - - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: -16, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 699b9085d7e93534ba48f208d185c54a
@@ -281,13 +277,14 @@ TextureImporter:
       name: Slope_DnG_Left
       rect:
         serializedVersion: 2
-        x: 30
-        y: 30
-        width: 15
-        height: 15
+        x: 64
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -7.5, y: 7.5}
         - {x: -7.5, y: -7.5}
@@ -295,11 +292,9 @@ TextureImporter:
         - {x: 7.5, y: -7.5}
         - {x: -7.5, y: 7.5}
       physicsShape:
-      - - {x: -7.5, y: 7.5}
-        - {x: -7.5, y: -7.5}
-        - {x: 7.5, y: -7.5}
-        - {x: 7.5, y: -7.5}
-        - {x: -7.5, y: 7.5}
+      - - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: -16, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 4d06b071ccaee194488bda97ce0001e2
@@ -312,13 +307,14 @@ TextureImporter:
       name: Dirt_Slope_Roof_Left
       rect:
         serializedVersion: 2
-        x: 15
-        y: 15
-        width: 15
-        height: 15
+        x: 32
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -7.5, y: 7.5}
         - {x: -7.5, y: -7.5}
@@ -326,11 +322,9 @@ TextureImporter:
         - {x: 7.5, y: 7.5}
         - {x: 7.5, y: 7.5}
       physicsShape:
-      - - {x: -7.5, y: 7.5}
-        - {x: -7.5, y: -7.5}
-        - {x: -7.5, y: -7.5}
-        - {x: 7.5, y: 7.5}
-        - {x: 7.5, y: 7.5}
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: 16}
       tessellationDetail: 1
       bones: []
       spriteID: a0662f9f7e327a34a9bb02a5f864f9f1
@@ -343,13 +337,14 @@ TextureImporter:
       name: Dirt_Slope_Roof_Right
       rect:
         serializedVersion: 2
-        x: 15
+        x: 32
         y: 0
-        width: 15
-        height: 15
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -7.5, y: 7.5}
         - {x: -7.5, y: 7.5}
@@ -357,11 +352,9 @@ TextureImporter:
         - {x: 7.5, y: -7.5}
         - {x: 7.5, y: 7.5}
       physicsShape:
-      - - {x: -7.5, y: 7.5}
-        - {x: -7.5, y: 7.5}
-        - {x: 7.5, y: -7.5}
-        - {x: 7.5, y: -7.5}
-        - {x: 7.5, y: 7.5}
+      - - {x: -16, y: 16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
       tessellationDetail: 1
       bones: []
       spriteID: c66dfe15f08e03a40b79444877812d22
@@ -374,13 +367,14 @@ TextureImporter:
       name: Slope_Stone_Right
       rect:
         serializedVersion: 2
-        x: 45
-        y: 45
-        width: 15
-        height: 15
+        x: 96
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 7.5, y: 7.5}
         - {x: -7.5, y: -7.5}
@@ -388,11 +382,9 @@ TextureImporter:
         - {x: 7.5, y: -7.5}
         - {x: 7.5, y: 7.5}
       physicsShape:
-      - - {x: 7.5, y: 7.5}
-        - {x: -7.5, y: -7.5}
-        - {x: -7.5, y: -7.5}
-        - {x: 7.5, y: -7.5}
-        - {x: 7.5, y: 7.5}
+      - - {x: 16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
       tessellationDetail: 0
       bones: []
       spriteID: 95eccc13ceab80745a0859d7e370ee3a
@@ -405,13 +397,14 @@ TextureImporter:
       name: Slope_Stone_Left
       rect:
         serializedVersion: 2
-        x: 45
-        y: 30
-        width: 15
-        height: 15
+        x: 96
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -7.5, y: 7.5}
         - {x: -7.5, y: -7.5}
@@ -419,11 +412,9 @@ TextureImporter:
         - {x: 7.5, y: -7.5}
         - {x: -7.5, y: 7.5}
       physicsShape:
-      - - {x: -7.5, y: 7.5}
-        - {x: -7.5, y: -7.5}
-        - {x: 7.5, y: -7.5}
-        - {x: 7.5, y: -7.5}
-        - {x: -7.5, y: 7.5}
+      - - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: -16, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: b6cdb25c3dd312841a43d10e27740c61
@@ -436,13 +427,14 @@ TextureImporter:
       name: Stone_Slope_Roof_Left
       rect:
         serializedVersion: 2
-        x: 45
-        y: 15
-        width: 15
-        height: 15
+        x: 96
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -7.5, y: 7.5}
         - {x: -7.5, y: -7.5}
@@ -450,11 +442,9 @@ TextureImporter:
         - {x: 7.5, y: 7.5}
         - {x: 7.5, y: 7.5}
       physicsShape:
-      - - {x: -7.5, y: 7.5}
-        - {x: -7.5, y: -7.5}
-        - {x: -7.5, y: -7.5}
-        - {x: 7.5, y: 7.5}
-        - {x: 7.5, y: 7.5}
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 8a738cb9cecfcfd43b7e1e731f104937
@@ -467,13 +457,14 @@ TextureImporter:
       name: Stone_Slope_Roof_Right
       rect:
         serializedVersion: 2
-        x: 45
+        x: 96
         y: 0
-        width: 15
-        height: 15
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -7.5, y: 7.5}
         - {x: -7.5, y: 7.5}
@@ -481,11 +472,9 @@ TextureImporter:
         - {x: 7.5, y: -7.5}
         - {x: 7.5, y: 7.5}
       physicsShape:
-      - - {x: -7.5, y: 7.5}
-        - {x: -7.5, y: 7.5}
-        - {x: 7.5, y: -7.5}
-        - {x: 7.5, y: -7.5}
-        - {x: 7.5, y: 7.5}
+      - - {x: -16, y: 16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 43fc63ca02d56b64fb24f58e135dd511
@@ -495,6 +484,7 @@ TextureImporter:
       edges: []
       weights: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
@@ -504,6 +494,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
     nameFileIdTable:
       Dirt_Slope_Roof_Left: -1849104656
       Dirt_Slope_Roof_Right: -1110459828
@@ -516,6 +508,7 @@ TextureImporter:
       Slope_Grass_Right: 1884051650
       Slope_Stone_Left: -74165701
       Slope_Stone_Right: -2028956658
+      Slopes_0: 1519059280
       Stone_Slope_Roof_Left: 477909514
       Stone_Slope_Roof_Right: -1972370370
   mipmapLimitGroupName: 

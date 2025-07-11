@@ -19,7 +19,6 @@ GameObject:
   - component: {fileID: 2116441238564252724}
   - component: {fileID: -5904773349090693751}
   - component: {fileID: 6443549884627543637}
-  - component: {fileID: 3912946133750831456}
   - component: {fileID: 6778713741367777506}
   - component: {fileID: 6215100587206120831}
   - component: {fileID: 6901107542769743277}
@@ -64,6 +63,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -107,6 +109,7 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 839410468977716332}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 6397da8d22e56ab4db7a37311446c197, type: 2}
   m_IncludeLayers:
@@ -130,7 +133,8 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: -0.0134676695, y: -0.5415927}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,12 +145,11 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 1.6386225, y: 2.0499117}
   m_EdgeRadius: 0
 --- !u!50 &8617978280017669715
 Rigidbody2D:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -157,8 +160,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 5
   m_Material: {fileID: 6200000, guid: 6397da8d22e56ab4db7a37311446c197, type: 2}
   m_IncludeLayers:
@@ -191,10 +194,13 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 512
+  health: {fileID: 0}
+  DeathAudio: {fileID: 0}
+  canWallClimb: 1
   isDashing: 0
 --- !u!95 &4688718179682733131
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -208,6 +214,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -225,8 +232,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2865433198
+  GlobalObjectIdHash: 530065708
   InScenePlacedSourceGlobalObjectIdHash: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -234,6 +243,8 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!114 &3164112332699366950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,6 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee49a8a0f930b94ba314ba049bca8e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   startingHealth: 3
   healthBar: {fileID: 0}
   iFramesDuration: 2
@@ -258,6 +270,7 @@ CircleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 839410468977716332}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 6397da8d22e56ab4db7a37311446c197, type: 2}
   m_IncludeLayers:
@@ -281,9 +294,9 @@ CircleCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0.046348333, y: -0.54796076}
-  serializedVersion: 2
   m_Radius: 0.6802473
 --- !u!114 &-5904773349090693751
 MonoBehaviour:
@@ -310,21 +323,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12e543627bd5b5b4a82d873211e72d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   m_2DGM_Switch: 1
   textComponent: {fileID: 0}
---- !u!114 &3912946133750831456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 839410468977716332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6876e569a7e018b45bfdc9f55f18a0a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventoryData: {fileID: 0}
 --- !u!114 &6778713741367777506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,6 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0e8b951ead9d947b907ef7278da88d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   anim: {fileID: 0}
   cam: {fileID: 0}
 --- !u!114 &6215100587206120831
@@ -351,7 +353,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b23b11ef5072be43a57ee28ec8c0523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUp: 2
+  powerUp: {fileID: 0}
+  lastPU: {fileID: 0}
+  powerUpSound: {fileID: 0}
+  soundSource: {fileID: 0}
 --- !u!96 &6901107542769743277
 TrailRenderer:
   serializedVersion: 3
@@ -370,6 +375,9 @@ TrailRenderer:
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5333,6 +5341,9 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5371,13 +5382,15 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
-  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
+  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
+  m_UseCustomTrailVertexStreams: 0
+  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -5431,3 +5444,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b2a02a4873bf264e9299db396cbc229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
