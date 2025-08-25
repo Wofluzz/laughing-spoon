@@ -188,11 +188,9 @@ public class PlayerMovements : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Player entered trigger: " + collision.name);
 
         if (collision.CompareTag("Bounds"))
         {
-            Debug.Log("Player out of bounds, taking damage.");
 
             InvokingPlayerDeath();
 

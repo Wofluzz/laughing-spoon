@@ -46,7 +46,6 @@ namespace Inventory2D.Model
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            Debug.Log("Collision with: " + collision.gameObject.name);
 
             if (collision.gameObject.CompareTag("Enemy"))
             {

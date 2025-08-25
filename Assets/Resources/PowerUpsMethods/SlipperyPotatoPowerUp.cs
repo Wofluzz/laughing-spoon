@@ -17,7 +17,6 @@ namespace Inventory2D.Model
         public override void Execute(GameObject player)
         {
             // Debugging: Confirm Execute is called
-            Debug.Log("SlipperyPotatoPowerUp.Execute() called.");
 
             var sr = player.GetComponent<SpriteRenderer>();
             var tr = player.GetComponent<TrailRenderer>();
@@ -43,7 +42,6 @@ namespace Inventory2D.Model
             float lastDirection = currentInput != 0 ? Mathf.Sign(currentInput) : pm.isDashing ? Mathf.Sign(rb.linearVelocity.x) : player.transform.localScale.x; // Use player's current facing direction if no input and not dashing
 
             // Debugging: Check input and dashing state
-            Debug.Log($"Input.GetButtonDown('Attack'): {Input.GetButtonDown("Attack")}, pm.isDashing: {pm.isDashing}");
 
             if (Input.GetButtonDown("Attack") && !pm.isDashing) // Use !pm.isDashing for clarity
             {
@@ -68,8 +66,6 @@ namespace Inventory2D.Model
                 Vector2 dashVelo = new (lastDirection * dashForce, 0f);
                 rb.linearVelocity += dashVelo;  // Set y-linearVelocity to 0 for a purely horizontal dash, or keep rb.linearVelocity.y if you want to preserve vertical momentum. I've set it to 0 for a clearer horizontal dash.
 
-                Debug.Log($"Dash initiated. linearVelocity: {rb.linearVelocity}, isDashing: {pm.isDashing}");
-
                 // Start the coroutine on the PlayerMovements script as ScriptableObjects cannot run coroutines directly.
                 pm.StartCoroutine(StopDash(pm, dashDuration, tr, rb));
             }
@@ -82,7 +78,6 @@ namespace Inventory2D.Model
             tr.emitting = false;
             pm.isDashing = false;
             //pm.SetGravityScale(5f); // Reset gravity to its normal value after dash
-            Debug.Log("Dash stopped. isDashing: false, Gravity Reset.");
         }
     }
 }

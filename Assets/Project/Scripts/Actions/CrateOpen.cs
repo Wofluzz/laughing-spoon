@@ -3,6 +3,7 @@ using Inventory2D.Model;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CrateOpen : MonoBehaviour
 {
@@ -47,6 +48,11 @@ public class CrateOpen : MonoBehaviour
         foreach (var item in itemData)
         {
             GameObject n_item = Instantiate(itemObject, new Vector3(transform.position.x, transform.position.y + 1, 0), Quaternion.identity);
+
+            
+            Scene levelScene = SceneManager.GetSceneByName(GameManager.instance.currentLevelScene.name);
+            SceneManager.MoveGameObjectToScene(n_item, levelScene);
+
             float rm_posX = Random.Range(0, 2);
 
             PowerUpSpawner pSpawn = n_item.GetComponent<PowerUpSpawner>();
